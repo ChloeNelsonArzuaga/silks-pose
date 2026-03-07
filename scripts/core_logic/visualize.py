@@ -18,7 +18,7 @@ import json
 from pathlib import Path
 import cv2
 import numpy as np
-from utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame, draw_mask_overlay, draw_landmarks
+from scripts.utility_testing.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame, draw_mask_overlay, draw_landmarks
 
 POSE_CONNECTIONS = [
     (11,12),(11,13),(13,15),(12,14),(14,16),

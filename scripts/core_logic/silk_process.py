@@ -19,7 +19,7 @@ import sys, json, math
 from pathlib import Path
 import numpy as np
 import cv2
-from utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame
+from scripts.utility_testing.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame
 
 CONTACT_THRESHOLD_NORM = 0.035
 NEIGHBORS = {
