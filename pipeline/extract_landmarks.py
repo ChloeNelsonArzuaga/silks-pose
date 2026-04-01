@@ -1,10 +1,9 @@
-
 #!/usr/bin/env python3
 """
 Extract MediaPipe Pose Landmarks (MediaPipe 0.10.x Tasks API)
 
 Usage:
-python scripts/extract_landmarks.py input_video.mov output_landmarks.json
+python pipeline/extract_landmarks.py input_video.mov output_landmarks.json
 """
 
 # This script extracts pose landmarks from a video using MediaPipe's Pose Landmarker.
@@ -20,7 +19,7 @@ from mediapipe.tasks.python import vision
 
 # MediaPipe pose model URL
 MODEL_URL = "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task"
-MODEL_PATH = "pose_landmarker.task"
+MODEL_PATH = "models/pose_landmarker.task"
 
 
 def download_model():
@@ -100,6 +99,6 @@ def extract(video_path, output_path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python scripts/extract_landmarks.py input_video.mov output.json")
+        print("Usage: python pipeline/extract_landmarks.py input_video.mov output.json")
     else:
         extract(sys.argv[1], sys.argv[2])

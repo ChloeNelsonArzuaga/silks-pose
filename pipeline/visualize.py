@@ -3,24 +3,24 @@
 Unified visualization script for pose landmarks and silk mask overlays.
 
 Usage:
-    python scripts/visualize.py landmarks.json input_video.mov out_prefix [--mask] [--masked]
+    python pipeline/visualize.py landmarks.json input_video.mov out_prefix [--mask] [--masked]
 
 Options:
     --mask      Overlay silk mask on frames
     --masked    Use occlusion-aware landmark coloring (for masked landmarks)
 
 Examples:
-    python scripts/visualize.py data/landmarks/test_landmarks.json data/raw_videos/test.mov data/visualized/test
-    python scripts/visualize.py preprocessed_silk/landmarks_masked.json data/raw_videos/test.mov data/visualized/test_masked --mask --masked
+    python pipeline/visualize.py data/landmarks/test_landmarks.json data/raw_videos/test.mov data/output/test
+    python pipeline/visualize.py data/preprocessed_silk/landmarks_masked.json data/raw_videos/test.mov data/output/test_masked --mask --masked
 """
 import sys
 import json
 from pathlib import Path
 import cv2
 import numpy as np
-# Add parent scripts directory to sys.path for imports
-sys.path.append(str(Path(__file__).parent.parent))
-from utility_testing.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame, draw_mask_overlay, draw_landmarks
+# Add repo root to sys.path so utils package is importable
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame, draw_mask_overlay, draw_landmarks
 
 POSE_CONNECTIONS = [
     (11,12),(11,13),(13,15),(12,14),(14,16),
@@ -113,7 +113,7 @@ def main(landmarks_json_path, video_path, out_prefix, overlay_mask=False, masked
 if __name__ == "__main__":
     args = sys.argv[1:]
     if len(args) < 3:
-        print("Usage: python scripts/visualize.py landmarks.json input_video.mov out_prefix [--mask] [--masked]")
+        print("Usage: python pipeline/visualize.py landmarks.json input_video.mov out_prefix [--mask] [--masked]")
         sys.exit(1)
     overlay_mask = '--mask' in args
     masked_landmarks = '--masked' in args

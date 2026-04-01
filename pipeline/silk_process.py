@@ -3,7 +3,7 @@
 Unified silk postprocessing and filtering script.
 
 Usage:
-  python scripts/silk_process.py landmarks.json video.mov out_dir [--filter]
+  python pipeline/silk_process.py landmarks.json video.mov out_dir [--filter]
 
 Options:
   --filter    Apply filtering heuristics after postprocessing (flags unreliable joints)
@@ -19,9 +19,9 @@ import sys, json, math
 from pathlib import Path
 import numpy as np
 import cv2
-# Add parent scripts directory to sys.path for imports
-sys.path.append(str(Path(__file__).parent.parent))
-from utility_testing.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame
+# Add repo root to sys.path so utils package is importable
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame
 
 CONTACT_THRESHOLD_NORM = 0.035
 NEIGHBORS = {
@@ -159,7 +159,7 @@ def run_filter(data, silk_min_dist, out_dir):
 if __name__ == "__main__":
     args = sys.argv[1:]
     if len(args) < 3:
-        print("Usage: python scripts/silk_process.py landmarks.json video.mov out_dir [--filter]")
+        print("Usage: python pipeline/silk_process.py landmarks.json video.mov out_dir [--filter]")
         sys.exit(1)
     filter_flag = '--filter' in args
     args = [a for a in args if not a.startswith('--')]

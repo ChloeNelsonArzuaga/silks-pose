@@ -1,11 +1,9 @@
-
-
 #!/usr/bin/env python3
 """
 Preprocess MediaPipe landmarks JSON -> body-frame positions + yaw & yaw_rate.
 
 Usage:
-python scripts/preprocess.py data/landmarks/test_landmarks.json data/raw_videos/test.mov preprocessed/
+python pipeline/preprocess.py data/landmarks/test_landmarks.json data/raw_videos/test.mov data/preprocessed/
 """
 import json
 import math
@@ -154,6 +152,6 @@ def preprocess(landmarks_json_path, video_path, out_dir, smoothing=True):
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        print("Usage: python scripts/preprocess.py landmarks.json video_file out_dir")
+        print("Usage: python pipeline/preprocess.py landmarks.json video_file out_dir")
         sys.exit(1)
     preprocess(sys.argv[1], sys.argv[2], sys.argv[3])

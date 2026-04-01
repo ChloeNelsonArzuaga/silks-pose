@@ -10,7 +10,7 @@ def load_landmarks_json(path):
     with open(path, 'r') as f:
         return json.load(f)
 
-def load_hsv_settings(path=Path("hsv_settings.json")):
+def load_hsv_settings(path=Path("config/hsv_settings.json")):
     if path.exists():
         j = json.load(open(path))
         lower = np.array(j.get("lower", [8, 150, 150]), dtype=np.uint8)

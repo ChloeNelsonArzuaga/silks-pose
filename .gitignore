@@ -60,15 +60,6 @@ build/
 dist/
 *.egg-info/
 
-# Misc
-# Uncomment below if you want to ignore all output folders
-# data/processed/
-# data/visualized/
-# preprocessed/
-# preprocessed_silk*/
-# preprocessed_filtered/
-
-# Do not ignore requirements.txt, README.md, or scripts/
+# Do not ignore requirements.txt or README.md
 !requirements.txt
 !README.md
-!scripts/

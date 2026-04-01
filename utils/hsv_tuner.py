@@ -1,16 +1,14 @@
-
-
 #!/usr/bin/env python3
 """
 Interactive HSV tuner for silk masking.
 
 Usage:
-  python scripts/hsv_tuner.py data/raw_videos/test.mov
+  python utils/hsv_tuner.py data/raw_videos/test.mov
 
 Controls:
   - Adjust sliders to set lower/upper HSV values
   - Frame index box: set which frame to preview (enter number + Enter)
-  - Press 's' to save current HSV to hsv_settings.json
+  - Press 's' to save current HSV to config/hsv_settings.json
   - Press 'q' or ESC to quit
 """
 import cv2
@@ -20,15 +18,15 @@ import sys
 
 # This script provides an interactive OpenCV window to tune HSV color thresholds for silk masking.
 # It loads a video, allows frame selection, and lets you adjust HSV sliders to find the best mask.
-# Settings can be saved to hsv_settings.json for use in other scripts.
+# Settings can be saved to config/hsv_settings.json for use in other scripts.
 from pathlib import Path
 
 if len(sys.argv) < 2:
-    print("Usage: python scripts/hsv_tuner.py path/to/video.mov")
+    print("Usage: python utils/hsv_tuner.py path/to/video.mov")
     sys.exit(1)
 
 VIDEO_PATH = Path(sys.argv[1])
-OUT_JSON = Path("hsv_settings.json")
+OUT_JSON = Path("config/hsv_settings.json")
      # Check for video path argument
 
 cap = cv2.VideoCapture(str(VIDEO_PATH))
@@ -122,6 +120,7 @@ while True:
             "lower": [int(hl), int(sl), int(vl)],
             "upper": [int(hu), int(su), int(vu)]
         }
+        OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
         with open(OUT_JSON, "w") as f:
             json.dump(settings, f, indent=2)
         print("Saved HSV settings to", OUT_JSON)
