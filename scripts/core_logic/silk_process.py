@@ -19,7 +19,9 @@ import sys, json, math
 from pathlib import Path
 import numpy as np
 import cv2
-from scripts.utility_testing.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame
+# Add parent scripts directory to sys.path for imports
+sys.path.append(str(Path(__file__).parent.parent))
+from utility_testing.utils import load_landmarks_json, load_hsv_settings, make_mask_for_frame
 
 CONTACT_THRESHOLD_NORM = 0.035
 NEIGHBORS = {
