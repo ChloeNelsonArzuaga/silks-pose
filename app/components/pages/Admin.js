@@ -1,3 +1,5 @@
+import { VideoLabeler } from '../VideoLabeler.js';
+
 export function Admin() {
     const page = document.createElement('div');
     page.className = 'page page-admin';
@@ -22,5 +24,9 @@ export function Admin() {
             </div>
         </div>
     `;
+
+    // Add labeler widget below the cards
+    page.appendChild(VideoLabeler());
+
     return page;
 }

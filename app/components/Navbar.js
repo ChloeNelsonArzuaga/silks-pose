@@ -8,6 +8,7 @@ export function Navbar() {
         <div class="navbar-links">
             <a href="#/">Home</a>
             <a href="#/upload">Upload</a>
+            <a href="#/dataset">Dataset</a>
             <a href="#/admin">Admin</a>
         </div>
     `;

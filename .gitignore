@@ -14,36 +14,11 @@ __pycache__/
 venv/
 ENV/
 
-# Data files
-*.npy
-*.npz
-*.csv
-*.tsv
-*.h5
-*.hdf5
-*.pkl
-*.pickle
-*.json
-*.log
-*.txt
-
-# Video and image outputs
-*.mp4
-*.mov
-*.avi
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.tiff
-*.bmp
+# Data directory (videos, outputs, preprocessed files)
+data/
 
 # Model files
-*.task
-*.pth
-*.pt
-*.onnx
-*.h5
+models/
 
 # IDE and OS
 .DS_Store
@@ -51,8 +26,6 @@ ENV/
 *.swo
 *.bak
 *.tmp
-
-# VS Code
 .vscode/
 
 # Build
@@ -60,6 +33,5 @@ build/
 dist/
 *.egg-info/
 
-# Do not ignore requirements.txt or README.md
-!requirements.txt
-!README.md
+# Misc generated files
+hsv_preview_overlay.jpg

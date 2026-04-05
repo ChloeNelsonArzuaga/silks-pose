@@ -1,0 +1,10 @@
+[
+  {
+    "id": "test",
+    "filename": "test.mov",
+    "path": "data/raw_videos/test.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  }
+]
