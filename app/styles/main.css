@@ -256,9 +256,11 @@ body {
 
 .labeler-player video {
     width: 100%;
-    border-radius: var(--radius);
-    background: #000;
+    max-height: 80vh;
     display: block;
+    background: #000;
+    border-radius: var(--radius);
+    object-fit: contain;
 }
 
 .labeler-time {
@@ -367,6 +369,19 @@ body {
 
 .label-text {
     flex: 1;
+    border-radius: 3px;
+    padding: 0 3px;
+    outline: none;
+    cursor: text;
+}
+
+.label-text:hover {
+    background: var(--color-primary-subtle);
+}
+
+.label-text:focus {
+    background: var(--color-primary-subtle);
+    box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 .label-delete {
@@ -412,9 +427,10 @@ body {
     color: var(--color-text);
 }
 
-.split-btn.split-active[data-split="train"] { background: #dcfce7; border-color: #86efac; color: #16a34a; }
-.split-btn.split-active[data-split="test"]  { background: #dbeafe; border-color: #93c5fd; color: #2563eb; }
-.split-btn.split-active[data-split="unused"] { background: #fee2e2; border-color: #fca5a5; color: #dc2626; }
+.split-btn.split-active[data-split="train"]      { background: #dcfce7; border-color: #86efac; color: #16a34a; }
+.split-btn.split-active[data-split="test"]       { background: #dbeafe; border-color: #93c5fd; color: #2563eb; }
+.split-btn.split-active[data-split="labeled"]    { background: #fef9c3; border-color: #fde047; color: #ca8a04; }
+.split-btn.split-active[data-split="unused"]     { background: #fee2e2; border-color: #fca5a5; color: #dc2626; }
 .split-btn.split-active[data-split="unassigned"] { background: var(--color-surface); border-color: #c4c4c9; color: var(--color-text); }
 
 .labeler-section-title {
@@ -571,6 +587,7 @@ body {
 
 .stat-pill.stat-train      { background: #dcfce7; color: #16a34a; }
 .stat-pill.stat-test       { background: #dbeafe; color: #2563eb; }
+.stat-pill.stat-labeled    { background: #fef9c3; color: #ca8a04; }
 .stat-pill.stat-unused     { background: #fee2e2; color: #dc2626; }
 .stat-pill.stat-unassigned { background: var(--color-surface); color: var(--color-text-muted); border: 1px solid var(--color-border); }
 

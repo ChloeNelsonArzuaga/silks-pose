@@ -1,5 +1,5117 @@
 [
   {
+    "id": "04FA1519-6555-4691-B19A-0B6A59C45437",
+    "filename": "04FA1519-6555-4691-B19A-0B6A59C45437.MP4",
+    "path": "data/raw_videos/04FA1519-6555-4691-B19A-0B6A59C45437.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "25B07290-1903-4F13-8301-A8FB4FE16FBF",
+    "filename": "25B07290-1903-4F13-8301-A8FB4FE16FBF.MP4",
+    "path": "data/raw_videos/25B07290-1903-4F13-8301-A8FB4FE16FBF.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "37CF84D8-052D-45CE-A7DC-CFF5E9AA21FF",
+    "filename": "37CF84D8-052D-45CE-A7DC-CFF5E9AA21FF.MP4",
+    "path": "data/raw_videos/37CF84D8-052D-45CE-A7DC-CFF5E9AA21FF.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "43EDBA66-0B2D-4DBF-8D8A-9B53E12B4933",
+    "filename": "43EDBA66-0B2D-4DBF-8D8A-9B53E12B4933.MP4",
+    "path": "data/raw_videos/43EDBA66-0B2D-4DBF-8D8A-9B53E12B4933.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "68975B35-C697-4EDA-85E4-A6D1CDA42D94",
+    "filename": "68975B35-C697-4EDA-85E4-A6D1CDA42D94.MP4",
+    "path": "data/raw_videos/68975B35-C697-4EDA-85E4-A6D1CDA42D94.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "AC17FC6E-328D-4C1B-8D68-FF91E74A4C79",
+    "filename": "AC17FC6E-328D-4C1B-8D68-FF91E74A4C79.MP4",
+    "path": "data/raw_videos/AC17FC6E-328D-4C1B-8D68-FF91E74A4C79.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "D2D07F46-BB7F-449F-BA97-3DF63EBB08E1",
+    "filename": "D2D07F46-BB7F-449F-BA97-3DF63EBB08E1.MP4",
+    "path": "data/raw_videos/D2D07F46-BB7F-449F-BA97-3DF63EBB08E1.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "E9229D19-C830-43CE-968E-4F5A34C7F83D",
+    "filename": "E9229D19-C830-43CE-968E-4F5A34C7F83D.MP4",
+    "path": "data/raw_videos/E9229D19-C830-43CE-968E-4F5A34C7F83D.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "F419D05E-A241-445E-84E8-9C68B579B43B",
+    "filename": "F419D05E-A241-445E-84E8-9C68B579B43B.MP4",
+    "path": "data/raw_videos/F419D05E-A241-445E-84E8-9C68B579B43B.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "FF7B73C2-A087-4A9C-8C4F-154D71CE606D",
+    "filename": "FF7B73C2-A087-4A9C-8C4F-154D71CE606D.mov",
+    "path": "data/raw_videos/FF7B73C2-A087-4A9C-8C4F-154D71CE606D.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "HEPD9977 (1)",
+    "filename": "HEPD9977 (1).MP4",
+    "path": "data/raw_videos/HEPD9977 (1).MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "HEPD9977",
+    "filename": "HEPD9977.MP4",
+    "path": "data/raw_videos/HEPD9977.MP4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0228",
+    "filename": "IMG_0228.MOV",
+    "path": "data/raw_videos/IMG_0228.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0229",
+    "filename": "IMG_0229.MOV",
+    "path": "data/raw_videos/IMG_0229.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0230",
+    "filename": "IMG_0230.MOV",
+    "path": "data/raw_videos/IMG_0230.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0234",
+    "filename": "IMG_0234.MOV",
+    "path": "data/raw_videos/IMG_0234.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0237",
+    "filename": "IMG_0237.MOV",
+    "path": "data/raw_videos/IMG_0237.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0241",
+    "filename": "IMG_0241.MOV",
+    "path": "data/raw_videos/IMG_0241.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0242",
+    "filename": "IMG_0242.MOV",
+    "path": "data/raw_videos/IMG_0242.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0243",
+    "filename": "IMG_0243.MOV",
+    "path": "data/raw_videos/IMG_0243.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0244",
+    "filename": "IMG_0244.MOV",
+    "path": "data/raw_videos/IMG_0244.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0250 (1)",
+    "filename": "IMG_0250 (1).MOV",
+    "path": "data/raw_videos/IMG_0250 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0260",
+    "filename": "IMG_0260.MOV",
+    "path": "data/raw_videos/IMG_0260.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0261",
+    "filename": "IMG_0261.MOV",
+    "path": "data/raw_videos/IMG_0261.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0262",
+    "filename": "IMG_0262.MOV",
+    "path": "data/raw_videos/IMG_0262.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0263",
+    "filename": "IMG_0263.MOV",
+    "path": "data/raw_videos/IMG_0263.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0264",
+    "filename": "IMG_0264.MOV",
+    "path": "data/raw_videos/IMG_0264.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0265",
+    "filename": "IMG_0265.MOV",
+    "path": "data/raw_videos/IMG_0265.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0266",
+    "filename": "IMG_0266.MOV",
+    "path": "data/raw_videos/IMG_0266.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0267",
+    "filename": "IMG_0267.MOV",
+    "path": "data/raw_videos/IMG_0267.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0268",
+    "filename": "IMG_0268.MOV",
+    "path": "data/raw_videos/IMG_0268.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0269",
+    "filename": "IMG_0269.MOV",
+    "path": "data/raw_videos/IMG_0269.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0270",
+    "filename": "IMG_0270.MOV",
+    "path": "data/raw_videos/IMG_0270.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0271",
+    "filename": "IMG_0271.MOV",
+    "path": "data/raw_videos/IMG_0271.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0274",
+    "filename": "IMG_0274.MOV",
+    "path": "data/raw_videos/IMG_0274.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0275",
+    "filename": "IMG_0275.MOV",
+    "path": "data/raw_videos/IMG_0275.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0276",
+    "filename": "IMG_0276.MOV",
+    "path": "data/raw_videos/IMG_0276.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0277",
+    "filename": "IMG_0277.MOV",
+    "path": "data/raw_videos/IMG_0277.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0278",
+    "filename": "IMG_0278.MOV",
+    "path": "data/raw_videos/IMG_0278.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0279",
+    "filename": "IMG_0279.MOV",
+    "path": "data/raw_videos/IMG_0279.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0280",
+    "filename": "IMG_0280.MOV",
+    "path": "data/raw_videos/IMG_0280.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0281",
+    "filename": "IMG_0281.MOV",
+    "path": "data/raw_videos/IMG_0281.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0284",
+    "filename": "IMG_0284.MOV",
+    "path": "data/raw_videos/IMG_0284.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0285",
+    "filename": "IMG_0285.MOV",
+    "path": "data/raw_videos/IMG_0285.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0286",
+    "filename": "IMG_0286.MOV",
+    "path": "data/raw_videos/IMG_0286.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0287",
+    "filename": "IMG_0287.MOV",
+    "path": "data/raw_videos/IMG_0287.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0288",
+    "filename": "IMG_0288.MOV",
+    "path": "data/raw_videos/IMG_0288.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0289",
+    "filename": "IMG_0289.MOV",
+    "path": "data/raw_videos/IMG_0289.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0290",
+    "filename": "IMG_0290.MOV",
+    "path": "data/raw_videos/IMG_0290.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0291",
+    "filename": "IMG_0291.MOV",
+    "path": "data/raw_videos/IMG_0291.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0292",
+    "filename": "IMG_0292.MOV",
+    "path": "data/raw_videos/IMG_0292.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0293",
+    "filename": "IMG_0293.MOV",
+    "path": "data/raw_videos/IMG_0293.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0294",
+    "filename": "IMG_0294.MOV",
+    "path": "data/raw_videos/IMG_0294.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0295",
+    "filename": "IMG_0295.MOV",
+    "path": "data/raw_videos/IMG_0295.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0296",
+    "filename": "IMG_0296.MOV",
+    "path": "data/raw_videos/IMG_0296.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0297",
+    "filename": "IMG_0297.MOV",
+    "path": "data/raw_videos/IMG_0297.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0298",
+    "filename": "IMG_0298.MOV",
+    "path": "data/raw_videos/IMG_0298.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0299",
+    "filename": "IMG_0299.MOV",
+    "path": "data/raw_videos/IMG_0299.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0300",
+    "filename": "IMG_0300.MOV",
+    "path": "data/raw_videos/IMG_0300.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0301",
+    "filename": "IMG_0301.MOV",
+    "path": "data/raw_videos/IMG_0301.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0302",
+    "filename": "IMG_0302.MOV",
+    "path": "data/raw_videos/IMG_0302.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0303",
+    "filename": "IMG_0303.MOV",
+    "path": "data/raw_videos/IMG_0303.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0304",
+    "filename": "IMG_0304.MOV",
+    "path": "data/raw_videos/IMG_0304.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0305",
+    "filename": "IMG_0305.MOV",
+    "path": "data/raw_videos/IMG_0305.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0306",
+    "filename": "IMG_0306.MOV",
+    "path": "data/raw_videos/IMG_0306.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0307",
+    "filename": "IMG_0307.MOV",
+    "path": "data/raw_videos/IMG_0307.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0308",
+    "filename": "IMG_0308.MOV",
+    "path": "data/raw_videos/IMG_0308.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0309",
+    "filename": "IMG_0309.MOV",
+    "path": "data/raw_videos/IMG_0309.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0310",
+    "filename": "IMG_0310.MOV",
+    "path": "data/raw_videos/IMG_0310.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0311",
+    "filename": "IMG_0311.MOV",
+    "path": "data/raw_videos/IMG_0311.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0312",
+    "filename": "IMG_0312.MOV",
+    "path": "data/raw_videos/IMG_0312.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0313",
+    "filename": "IMG_0313.MOV",
+    "path": "data/raw_videos/IMG_0313.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0314",
+    "filename": "IMG_0314.MOV",
+    "path": "data/raw_videos/IMG_0314.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0315",
+    "filename": "IMG_0315.MOV",
+    "path": "data/raw_videos/IMG_0315.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0316",
+    "filename": "IMG_0316.MOV",
+    "path": "data/raw_videos/IMG_0316.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0317",
+    "filename": "IMG_0317.MOV",
+    "path": "data/raw_videos/IMG_0317.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0318",
+    "filename": "IMG_0318.MOV",
+    "path": "data/raw_videos/IMG_0318.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0319",
+    "filename": "IMG_0319.MOV",
+    "path": "data/raw_videos/IMG_0319.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0320",
+    "filename": "IMG_0320.MOV",
+    "path": "data/raw_videos/IMG_0320.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0321",
+    "filename": "IMG_0321.MOV",
+    "path": "data/raw_videos/IMG_0321.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0322",
+    "filename": "IMG_0322.MOV",
+    "path": "data/raw_videos/IMG_0322.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0324",
+    "filename": "IMG_0324.MOV",
+    "path": "data/raw_videos/IMG_0324.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0325",
+    "filename": "IMG_0325.MOV",
+    "path": "data/raw_videos/IMG_0325.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0326",
+    "filename": "IMG_0326.MOV",
+    "path": "data/raw_videos/IMG_0326.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0327",
+    "filename": "IMG_0327.MOV",
+    "path": "data/raw_videos/IMG_0327.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0328",
+    "filename": "IMG_0328.MOV",
+    "path": "data/raw_videos/IMG_0328.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0329",
+    "filename": "IMG_0329.MOV",
+    "path": "data/raw_videos/IMG_0329.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0330",
+    "filename": "IMG_0330.MOV",
+    "path": "data/raw_videos/IMG_0330.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0331",
+    "filename": "IMG_0331.MOV",
+    "path": "data/raw_videos/IMG_0331.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0332",
+    "filename": "IMG_0332.MOV",
+    "path": "data/raw_videos/IMG_0332.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0333",
+    "filename": "IMG_0333.MOV",
+    "path": "data/raw_videos/IMG_0333.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0343",
+    "filename": "IMG_0343.MOV",
+    "path": "data/raw_videos/IMG_0343.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0344",
+    "filename": "IMG_0344.MOV",
+    "path": "data/raw_videos/IMG_0344.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0345",
+    "filename": "IMG_0345.MOV",
+    "path": "data/raw_videos/IMG_0345.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0346",
+    "filename": "IMG_0346.MOV",
+    "path": "data/raw_videos/IMG_0346.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0347",
+    "filename": "IMG_0347.MOV",
+    "path": "data/raw_videos/IMG_0347.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0348",
+    "filename": "IMG_0348.MOV",
+    "path": "data/raw_videos/IMG_0348.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0349",
+    "filename": "IMG_0349.MOV",
+    "path": "data/raw_videos/IMG_0349.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0350",
+    "filename": "IMG_0350.MOV",
+    "path": "data/raw_videos/IMG_0350.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0381",
+    "filename": "IMG_0381.MOV",
+    "path": "data/raw_videos/IMG_0381.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0382",
+    "filename": "IMG_0382.MOV",
+    "path": "data/raw_videos/IMG_0382.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0383",
+    "filename": "IMG_0383.MOV",
+    "path": "data/raw_videos/IMG_0383.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0384",
+    "filename": "IMG_0384.MOV",
+    "path": "data/raw_videos/IMG_0384.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0385",
+    "filename": "IMG_0385.MOV",
+    "path": "data/raw_videos/IMG_0385.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0386",
+    "filename": "IMG_0386.MOV",
+    "path": "data/raw_videos/IMG_0386.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0387",
+    "filename": "IMG_0387.MOV",
+    "path": "data/raw_videos/IMG_0387.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0388",
+    "filename": "IMG_0388.MOV",
+    "path": "data/raw_videos/IMG_0388.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0389",
+    "filename": "IMG_0389.MOV",
+    "path": "data/raw_videos/IMG_0389.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0390",
+    "filename": "IMG_0390.MOV",
+    "path": "data/raw_videos/IMG_0390.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0391",
+    "filename": "IMG_0391.MOV",
+    "path": "data/raw_videos/IMG_0391.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0392",
+    "filename": "IMG_0392.MOV",
+    "path": "data/raw_videos/IMG_0392.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0393",
+    "filename": "IMG_0393.MOV",
+    "path": "data/raw_videos/IMG_0393.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0396",
+    "filename": "IMG_0396.MOV",
+    "path": "data/raw_videos/IMG_0396.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0397",
+    "filename": "IMG_0397.MOV",
+    "path": "data/raw_videos/IMG_0397.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0398",
+    "filename": "IMG_0398.MOV",
+    "path": "data/raw_videos/IMG_0398.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0399",
+    "filename": "IMG_0399.MOV",
+    "path": "data/raw_videos/IMG_0399.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0400",
+    "filename": "IMG_0400.MOV",
+    "path": "data/raw_videos/IMG_0400.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0401",
+    "filename": "IMG_0401.MOV",
+    "path": "data/raw_videos/IMG_0401.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0402",
+    "filename": "IMG_0402.MOV",
+    "path": "data/raw_videos/IMG_0402.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0403",
+    "filename": "IMG_0403.MOV",
+    "path": "data/raw_videos/IMG_0403.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0404",
+    "filename": "IMG_0404.MOV",
+    "path": "data/raw_videos/IMG_0404.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0405",
+    "filename": "IMG_0405.MOV",
+    "path": "data/raw_videos/IMG_0405.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0406",
+    "filename": "IMG_0406.MOV",
+    "path": "data/raw_videos/IMG_0406.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0407",
+    "filename": "IMG_0407.MOV",
+    "path": "data/raw_videos/IMG_0407.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0408 (1)",
+    "filename": "IMG_0408 (1).MOV",
+    "path": "data/raw_videos/IMG_0408 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0408",
+    "filename": "IMG_0408.MOV",
+    "path": "data/raw_videos/IMG_0408.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0409",
+    "filename": "IMG_0409.MOV",
+    "path": "data/raw_videos/IMG_0409.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0411",
+    "filename": "IMG_0411.MOV",
+    "path": "data/raw_videos/IMG_0411.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0412",
+    "filename": "IMG_0412.MOV",
+    "path": "data/raw_videos/IMG_0412.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0413",
+    "filename": "IMG_0413.MOV",
+    "path": "data/raw_videos/IMG_0413.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0414",
+    "filename": "IMG_0414.MOV",
+    "path": "data/raw_videos/IMG_0414.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0415",
+    "filename": "IMG_0415.MOV",
+    "path": "data/raw_videos/IMG_0415.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0416",
+    "filename": "IMG_0416.MOV",
+    "path": "data/raw_videos/IMG_0416.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0418",
+    "filename": "IMG_0418.MOV",
+    "path": "data/raw_videos/IMG_0418.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0419",
+    "filename": "IMG_0419.MOV",
+    "path": "data/raw_videos/IMG_0419.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0420",
+    "filename": "IMG_0420.MOV",
+    "path": "data/raw_videos/IMG_0420.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0421",
+    "filename": "IMG_0421.MOV",
+    "path": "data/raw_videos/IMG_0421.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0422",
+    "filename": "IMG_0422.MOV",
+    "path": "data/raw_videos/IMG_0422.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0423",
+    "filename": "IMG_0423.MOV",
+    "path": "data/raw_videos/IMG_0423.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0424",
+    "filename": "IMG_0424.MOV",
+    "path": "data/raw_videos/IMG_0424.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0425",
+    "filename": "IMG_0425.MOV",
+    "path": "data/raw_videos/IMG_0425.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0428",
+    "filename": "IMG_0428.MOV",
+    "path": "data/raw_videos/IMG_0428.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0429",
+    "filename": "IMG_0429.MOV",
+    "path": "data/raw_videos/IMG_0429.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0431",
+    "filename": "IMG_0431.MOV",
+    "path": "data/raw_videos/IMG_0431.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0435",
+    "filename": "IMG_0435.MOV",
+    "path": "data/raw_videos/IMG_0435.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0436",
+    "filename": "IMG_0436.MOV",
+    "path": "data/raw_videos/IMG_0436.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0437",
+    "filename": "IMG_0437.MOV",
+    "path": "data/raw_videos/IMG_0437.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0438",
+    "filename": "IMG_0438.MOV",
+    "path": "data/raw_videos/IMG_0438.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0439",
+    "filename": "IMG_0439.MOV",
+    "path": "data/raw_videos/IMG_0439.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0440",
+    "filename": "IMG_0440.MOV",
+    "path": "data/raw_videos/IMG_0440.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0441",
+    "filename": "IMG_0441.MOV",
+    "path": "data/raw_videos/IMG_0441.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0442",
+    "filename": "IMG_0442.MOV",
+    "path": "data/raw_videos/IMG_0442.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0459",
+    "filename": "IMG_0459.MOV",
+    "path": "data/raw_videos/IMG_0459.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0460",
+    "filename": "IMG_0460.MOV",
+    "path": "data/raw_videos/IMG_0460.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0461",
+    "filename": "IMG_0461.MOV",
+    "path": "data/raw_videos/IMG_0461.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0462 (1)",
+    "filename": "IMG_0462 (1).MOV",
+    "path": "data/raw_videos/IMG_0462 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0463",
+    "filename": "IMG_0463.MOV",
+    "path": "data/raw_videos/IMG_0463.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0464",
+    "filename": "IMG_0464.MOV",
+    "path": "data/raw_videos/IMG_0464.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0465",
+    "filename": "IMG_0465.MOV",
+    "path": "data/raw_videos/IMG_0465.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0466",
+    "filename": "IMG_0466.MOV",
+    "path": "data/raw_videos/IMG_0466.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0467",
+    "filename": "IMG_0467.MOV",
+    "path": "data/raw_videos/IMG_0467.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0468",
+    "filename": "IMG_0468.MOV",
+    "path": "data/raw_videos/IMG_0468.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0471",
+    "filename": "IMG_0471.MOV",
+    "path": "data/raw_videos/IMG_0471.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0472",
+    "filename": "IMG_0472.MOV",
+    "path": "data/raw_videos/IMG_0472.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0473",
+    "filename": "IMG_0473.MOV",
+    "path": "data/raw_videos/IMG_0473.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0474",
+    "filename": "IMG_0474.MOV",
+    "path": "data/raw_videos/IMG_0474.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0475",
+    "filename": "IMG_0475.MOV",
+    "path": "data/raw_videos/IMG_0475.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0476",
+    "filename": "IMG_0476.MOV",
+    "path": "data/raw_videos/IMG_0476.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0477",
+    "filename": "IMG_0477.MOV",
+    "path": "data/raw_videos/IMG_0477.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0478 (1)",
+    "filename": "IMG_0478 (1).MOV",
+    "path": "data/raw_videos/IMG_0478 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0478 (2)",
+    "filename": "IMG_0478 (2).MOV",
+    "path": "data/raw_videos/IMG_0478 (2).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0478",
+    "filename": "IMG_0478.MOV",
+    "path": "data/raw_videos/IMG_0478.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0486",
+    "filename": "IMG_0486.MOV",
+    "path": "data/raw_videos/IMG_0486.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0488",
+    "filename": "IMG_0488.MOV",
+    "path": "data/raw_videos/IMG_0488.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0489",
+    "filename": "IMG_0489.MOV",
+    "path": "data/raw_videos/IMG_0489.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0497",
+    "filename": "IMG_0497.MOV",
+    "path": "data/raw_videos/IMG_0497.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0499",
+    "filename": "IMG_0499.MOV",
+    "path": "data/raw_videos/IMG_0499.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0500",
+    "filename": "IMG_0500.MOV",
+    "path": "data/raw_videos/IMG_0500.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0501 (1)",
+    "filename": "IMG_0501 (1).MOV",
+    "path": "data/raw_videos/IMG_0501 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0502",
+    "filename": "IMG_0502.MOV",
+    "path": "data/raw_videos/IMG_0502.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0503",
+    "filename": "IMG_0503.MOV",
+    "path": "data/raw_videos/IMG_0503.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0504",
+    "filename": "IMG_0504.MOV",
+    "path": "data/raw_videos/IMG_0504.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0505",
+    "filename": "IMG_0505.MOV",
+    "path": "data/raw_videos/IMG_0505.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0506",
+    "filename": "IMG_0506.MOV",
+    "path": "data/raw_videos/IMG_0506.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0507",
+    "filename": "IMG_0507.MOV",
+    "path": "data/raw_videos/IMG_0507.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0508",
+    "filename": "IMG_0508.MOV",
+    "path": "data/raw_videos/IMG_0508.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0509",
+    "filename": "IMG_0509.MOV",
+    "path": "data/raw_videos/IMG_0509.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0510",
+    "filename": "IMG_0510.MOV",
+    "path": "data/raw_videos/IMG_0510.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0511",
+    "filename": "IMG_0511.MOV",
+    "path": "data/raw_videos/IMG_0511.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0517",
+    "filename": "IMG_0517.MOV",
+    "path": "data/raw_videos/IMG_0517.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0518",
+    "filename": "IMG_0518.MOV",
+    "path": "data/raw_videos/IMG_0518.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0519",
+    "filename": "IMG_0519.MOV",
+    "path": "data/raw_videos/IMG_0519.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0520",
+    "filename": "IMG_0520.MOV",
+    "path": "data/raw_videos/IMG_0520.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0522",
+    "filename": "IMG_0522.MOV",
+    "path": "data/raw_videos/IMG_0522.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0523",
+    "filename": "IMG_0523.MOV",
+    "path": "data/raw_videos/IMG_0523.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0524",
+    "filename": "IMG_0524.MOV",
+    "path": "data/raw_videos/IMG_0524.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0525 (1)",
+    "filename": "IMG_0525 (1).MOV",
+    "path": "data/raw_videos/IMG_0525 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0525",
+    "filename": "IMG_0525.MOV",
+    "path": "data/raw_videos/IMG_0525.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0526",
+    "filename": "IMG_0526.MOV",
+    "path": "data/raw_videos/IMG_0526.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0527",
+    "filename": "IMG_0527.MOV",
+    "path": "data/raw_videos/IMG_0527.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0528",
+    "filename": "IMG_0528.MOV",
+    "path": "data/raw_videos/IMG_0528.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0530",
+    "filename": "IMG_0530.MOV",
+    "path": "data/raw_videos/IMG_0530.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0531",
+    "filename": "IMG_0531.MOV",
+    "path": "data/raw_videos/IMG_0531.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0536",
+    "filename": "IMG_0536.MOV",
+    "path": "data/raw_videos/IMG_0536.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0537",
+    "filename": "IMG_0537.MOV",
+    "path": "data/raw_videos/IMG_0537.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0538 (1)",
+    "filename": "IMG_0538 (1).MOV",
+    "path": "data/raw_videos/IMG_0538 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0538",
+    "filename": "IMG_0538.MOV",
+    "path": "data/raw_videos/IMG_0538.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0539",
+    "filename": "IMG_0539.MOV",
+    "path": "data/raw_videos/IMG_0539.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0540",
+    "filename": "IMG_0540.MOV",
+    "path": "data/raw_videos/IMG_0540.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0541",
+    "filename": "IMG_0541.MOV",
+    "path": "data/raw_videos/IMG_0541.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0542",
+    "filename": "IMG_0542.MOV",
+    "path": "data/raw_videos/IMG_0542.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0543",
+    "filename": "IMG_0543.MOV",
+    "path": "data/raw_videos/IMG_0543.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0544",
+    "filename": "IMG_0544.MOV",
+    "path": "data/raw_videos/IMG_0544.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0547",
+    "filename": "IMG_0547.MOV",
+    "path": "data/raw_videos/IMG_0547.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0548",
+    "filename": "IMG_0548.MOV",
+    "path": "data/raw_videos/IMG_0548.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0549",
+    "filename": "IMG_0549.MOV",
+    "path": "data/raw_videos/IMG_0549.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0550",
+    "filename": "IMG_0550.MOV",
+    "path": "data/raw_videos/IMG_0550.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0551",
+    "filename": "IMG_0551.MOV",
+    "path": "data/raw_videos/IMG_0551.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0552",
+    "filename": "IMG_0552.MOV",
+    "path": "data/raw_videos/IMG_0552.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0553",
+    "filename": "IMG_0553.MOV",
+    "path": "data/raw_videos/IMG_0553.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0558",
+    "filename": "IMG_0558.MOV",
+    "path": "data/raw_videos/IMG_0558.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0559",
+    "filename": "IMG_0559.MOV",
+    "path": "data/raw_videos/IMG_0559.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0560",
+    "filename": "IMG_0560.MOV",
+    "path": "data/raw_videos/IMG_0560.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0561",
+    "filename": "IMG_0561.MOV",
+    "path": "data/raw_videos/IMG_0561.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0562",
+    "filename": "IMG_0562.MOV",
+    "path": "data/raw_videos/IMG_0562.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0563",
+    "filename": "IMG_0563.MOV",
+    "path": "data/raw_videos/IMG_0563.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0564",
+    "filename": "IMG_0564.MOV",
+    "path": "data/raw_videos/IMG_0564.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0565",
+    "filename": "IMG_0565.MOV",
+    "path": "data/raw_videos/IMG_0565.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0566",
+    "filename": "IMG_0566.MOV",
+    "path": "data/raw_videos/IMG_0566.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0567",
+    "filename": "IMG_0567.MOV",
+    "path": "data/raw_videos/IMG_0567.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0568",
+    "filename": "IMG_0568.MOV",
+    "path": "data/raw_videos/IMG_0568.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0569",
+    "filename": "IMG_0569.MOV",
+    "path": "data/raw_videos/IMG_0569.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0570",
+    "filename": "IMG_0570.MOV",
+    "path": "data/raw_videos/IMG_0570.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0571",
+    "filename": "IMG_0571.MOV",
+    "path": "data/raw_videos/IMG_0571.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0577",
+    "filename": "IMG_0577.MOV",
+    "path": "data/raw_videos/IMG_0577.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0578",
+    "filename": "IMG_0578.MOV",
+    "path": "data/raw_videos/IMG_0578.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0579",
+    "filename": "IMG_0579.MOV",
+    "path": "data/raw_videos/IMG_0579.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0580",
+    "filename": "IMG_0580.MOV",
+    "path": "data/raw_videos/IMG_0580.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0581",
+    "filename": "IMG_0581.MOV",
+    "path": "data/raw_videos/IMG_0581.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0582",
+    "filename": "IMG_0582.MOV",
+    "path": "data/raw_videos/IMG_0582.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0583 (1)",
+    "filename": "IMG_0583 (1).MOV",
+    "path": "data/raw_videos/IMG_0583 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0583",
+    "filename": "IMG_0583.MOV",
+    "path": "data/raw_videos/IMG_0583.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0584",
+    "filename": "IMG_0584.MOV",
+    "path": "data/raw_videos/IMG_0584.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0586",
+    "filename": "IMG_0586.MOV",
+    "path": "data/raw_videos/IMG_0586.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0589 (1)",
+    "filename": "IMG_0589 (1).MOV",
+    "path": "data/raw_videos/IMG_0589 (1).MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0598",
+    "filename": "IMG_0598.MOV",
+    "path": "data/raw_videos/IMG_0598.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0599",
+    "filename": "IMG_0599.MOV",
+    "path": "data/raw_videos/IMG_0599.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0600",
+    "filename": "IMG_0600.MOV",
+    "path": "data/raw_videos/IMG_0600.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0601",
+    "filename": "IMG_0601.MOV",
+    "path": "data/raw_videos/IMG_0601.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0602",
+    "filename": "IMG_0602.MOV",
+    "path": "data/raw_videos/IMG_0602.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0603",
+    "filename": "IMG_0603.MOV",
+    "path": "data/raw_videos/IMG_0603.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0604",
+    "filename": "IMG_0604.MOV",
+    "path": "data/raw_videos/IMG_0604.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0605",
+    "filename": "IMG_0605.MOV",
+    "path": "data/raw_videos/IMG_0605.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0606",
+    "filename": "IMG_0606.MOV",
+    "path": "data/raw_videos/IMG_0606.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0607",
+    "filename": "IMG_0607.MOV",
+    "path": "data/raw_videos/IMG_0607.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0608",
+    "filename": "IMG_0608.MOV",
+    "path": "data/raw_videos/IMG_0608.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0609",
+    "filename": "IMG_0609.MOV",
+    "path": "data/raw_videos/IMG_0609.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0613",
+    "filename": "IMG_0613.MOV",
+    "path": "data/raw_videos/IMG_0613.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0614",
+    "filename": "IMG_0614.MOV",
+    "path": "data/raw_videos/IMG_0614.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0615",
+    "filename": "IMG_0615.MOV",
+    "path": "data/raw_videos/IMG_0615.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0616",
+    "filename": "IMG_0616.MOV",
+    "path": "data/raw_videos/IMG_0616.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0617",
+    "filename": "IMG_0617.MOV",
+    "path": "data/raw_videos/IMG_0617.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0618",
+    "filename": "IMG_0618.MOV",
+    "path": "data/raw_videos/IMG_0618.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0619",
+    "filename": "IMG_0619.MOV",
+    "path": "data/raw_videos/IMG_0619.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0620",
+    "filename": "IMG_0620.MOV",
+    "path": "data/raw_videos/IMG_0620.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0621",
+    "filename": "IMG_0621.MOV",
+    "path": "data/raw_videos/IMG_0621.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0622",
+    "filename": "IMG_0622.MOV",
+    "path": "data/raw_videos/IMG_0622.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0623",
+    "filename": "IMG_0623.MOV",
+    "path": "data/raw_videos/IMG_0623.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0624",
+    "filename": "IMG_0624.MOV",
+    "path": "data/raw_videos/IMG_0624.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0625",
+    "filename": "IMG_0625.MOV",
+    "path": "data/raw_videos/IMG_0625.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0626",
+    "filename": "IMG_0626.MOV",
+    "path": "data/raw_videos/IMG_0626.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0627",
+    "filename": "IMG_0627.MOV",
+    "path": "data/raw_videos/IMG_0627.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0628",
+    "filename": "IMG_0628.MOV",
+    "path": "data/raw_videos/IMG_0628.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0662",
+    "filename": "IMG_0662.MOV",
+    "path": "data/raw_videos/IMG_0662.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0663",
+    "filename": "IMG_0663.MOV",
+    "path": "data/raw_videos/IMG_0663.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0664",
+    "filename": "IMG_0664.MOV",
+    "path": "data/raw_videos/IMG_0664.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0665",
+    "filename": "IMG_0665.MOV",
+    "path": "data/raw_videos/IMG_0665.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0666",
+    "filename": "IMG_0666.MOV",
+    "path": "data/raw_videos/IMG_0666.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0667",
+    "filename": "IMG_0667.MOV",
+    "path": "data/raw_videos/IMG_0667.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0668",
+    "filename": "IMG_0668.MOV",
+    "path": "data/raw_videos/IMG_0668.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0669",
+    "filename": "IMG_0669.MOV",
+    "path": "data/raw_videos/IMG_0669.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0670",
+    "filename": "IMG_0670.MOV",
+    "path": "data/raw_videos/IMG_0670.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0671",
+    "filename": "IMG_0671.MOV",
+    "path": "data/raw_videos/IMG_0671.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0672",
+    "filename": "IMG_0672.MOV",
+    "path": "data/raw_videos/IMG_0672.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0673",
+    "filename": "IMG_0673.MOV",
+    "path": "data/raw_videos/IMG_0673.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0674",
+    "filename": "IMG_0674.MOV",
+    "path": "data/raw_videos/IMG_0674.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0675",
+    "filename": "IMG_0675.MOV",
+    "path": "data/raw_videos/IMG_0675.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0676",
+    "filename": "IMG_0676.MOV",
+    "path": "data/raw_videos/IMG_0676.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0677",
+    "filename": "IMG_0677.MOV",
+    "path": "data/raw_videos/IMG_0677.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0678",
+    "filename": "IMG_0678.MOV",
+    "path": "data/raw_videos/IMG_0678.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0679",
+    "filename": "IMG_0679.MOV",
+    "path": "data/raw_videos/IMG_0679.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0680",
+    "filename": "IMG_0680.MOV",
+    "path": "data/raw_videos/IMG_0680.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0686",
+    "filename": "IMG_0686.MOV",
+    "path": "data/raw_videos/IMG_0686.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0687",
+    "filename": "IMG_0687.MOV",
+    "path": "data/raw_videos/IMG_0687.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0691",
+    "filename": "IMG_0691.MOV",
+    "path": "data/raw_videos/IMG_0691.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0692",
+    "filename": "IMG_0692.MOV",
+    "path": "data/raw_videos/IMG_0692.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0693",
+    "filename": "IMG_0693.MOV",
+    "path": "data/raw_videos/IMG_0693.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0694",
+    "filename": "IMG_0694.MOV",
+    "path": "data/raw_videos/IMG_0694.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0695",
+    "filename": "IMG_0695.MOV",
+    "path": "data/raw_videos/IMG_0695.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0696",
+    "filename": "IMG_0696.MOV",
+    "path": "data/raw_videos/IMG_0696.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0697",
+    "filename": "IMG_0697.MOV",
+    "path": "data/raw_videos/IMG_0697.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0698",
+    "filename": "IMG_0698.MOV",
+    "path": "data/raw_videos/IMG_0698.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0699",
+    "filename": "IMG_0699.MOV",
+    "path": "data/raw_videos/IMG_0699.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0702",
+    "filename": "IMG_0702.MOV",
+    "path": "data/raw_videos/IMG_0702.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0703",
+    "filename": "IMG_0703.MOV",
+    "path": "data/raw_videos/IMG_0703.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0704",
+    "filename": "IMG_0704.MOV",
+    "path": "data/raw_videos/IMG_0704.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0705",
+    "filename": "IMG_0705.MOV",
+    "path": "data/raw_videos/IMG_0705.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0706",
+    "filename": "IMG_0706.MOV",
+    "path": "data/raw_videos/IMG_0706.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0708",
+    "filename": "IMG_0708.MOV",
+    "path": "data/raw_videos/IMG_0708.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0709",
+    "filename": "IMG_0709.MOV",
+    "path": "data/raw_videos/IMG_0709.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0710",
+    "filename": "IMG_0710.MOV",
+    "path": "data/raw_videos/IMG_0710.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0727",
+    "filename": "IMG_0727.MOV",
+    "path": "data/raw_videos/IMG_0727.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0728",
+    "filename": "IMG_0728.MOV",
+    "path": "data/raw_videos/IMG_0728.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0729",
+    "filename": "IMG_0729.MOV",
+    "path": "data/raw_videos/IMG_0729.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0730",
+    "filename": "IMG_0730.MOV",
+    "path": "data/raw_videos/IMG_0730.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0731",
+    "filename": "IMG_0731.MOV",
+    "path": "data/raw_videos/IMG_0731.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0732",
+    "filename": "IMG_0732.MOV",
+    "path": "data/raw_videos/IMG_0732.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0735",
+    "filename": "IMG_0735.MOV",
+    "path": "data/raw_videos/IMG_0735.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0736",
+    "filename": "IMG_0736.MOV",
+    "path": "data/raw_videos/IMG_0736.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0737",
+    "filename": "IMG_0737.MOV",
+    "path": "data/raw_videos/IMG_0737.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0738",
+    "filename": "IMG_0738.MOV",
+    "path": "data/raw_videos/IMG_0738.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0739",
+    "filename": "IMG_0739.MOV",
+    "path": "data/raw_videos/IMG_0739.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0749",
+    "filename": "IMG_0749.MOV",
+    "path": "data/raw_videos/IMG_0749.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0750",
+    "filename": "IMG_0750.MOV",
+    "path": "data/raw_videos/IMG_0750.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0751",
+    "filename": "IMG_0751.MOV",
+    "path": "data/raw_videos/IMG_0751.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0752",
+    "filename": "IMG_0752.MOV",
+    "path": "data/raw_videos/IMG_0752.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0753",
+    "filename": "IMG_0753.MOV",
+    "path": "data/raw_videos/IMG_0753.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0754",
+    "filename": "IMG_0754.MOV",
+    "path": "data/raw_videos/IMG_0754.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0755",
+    "filename": "IMG_0755.MOV",
+    "path": "data/raw_videos/IMG_0755.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0768",
+    "filename": "IMG_0768.MOV",
+    "path": "data/raw_videos/IMG_0768.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0769",
+    "filename": "IMG_0769.MOV",
+    "path": "data/raw_videos/IMG_0769.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0770",
+    "filename": "IMG_0770.MOV",
+    "path": "data/raw_videos/IMG_0770.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0771",
+    "filename": "IMG_0771.MOV",
+    "path": "data/raw_videos/IMG_0771.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0772",
+    "filename": "IMG_0772.MOV",
+    "path": "data/raw_videos/IMG_0772.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0773",
+    "filename": "IMG_0773.MOV",
+    "path": "data/raw_videos/IMG_0773.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0774",
+    "filename": "IMG_0774.MOV",
+    "path": "data/raw_videos/IMG_0774.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0775",
+    "filename": "IMG_0775.MOV",
+    "path": "data/raw_videos/IMG_0775.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0776",
+    "filename": "IMG_0776.MOV",
+    "path": "data/raw_videos/IMG_0776.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0777",
+    "filename": "IMG_0777.MOV",
+    "path": "data/raw_videos/IMG_0777.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0780",
+    "filename": "IMG_0780.MOV",
+    "path": "data/raw_videos/IMG_0780.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0781",
+    "filename": "IMG_0781.MOV",
+    "path": "data/raw_videos/IMG_0781.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0782",
+    "filename": "IMG_0782.MOV",
+    "path": "data/raw_videos/IMG_0782.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0783",
+    "filename": "IMG_0783.MOV",
+    "path": "data/raw_videos/IMG_0783.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0785",
+    "filename": "IMG_0785.MOV",
+    "path": "data/raw_videos/IMG_0785.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0786",
+    "filename": "IMG_0786.MOV",
+    "path": "data/raw_videos/IMG_0786.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0788",
+    "filename": "IMG_0788.MOV",
+    "path": "data/raw_videos/IMG_0788.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0790",
+    "filename": "IMG_0790.MOV",
+    "path": "data/raw_videos/IMG_0790.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0824 2",
+    "filename": "IMG_0824 2.MOV",
+    "path": "data/raw_videos/IMG_0824 2.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0825",
+    "filename": "IMG_0825.MOV",
+    "path": "data/raw_videos/IMG_0825.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0837",
+    "filename": "IMG_0837.MOV",
+    "path": "data/raw_videos/IMG_0837.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0838",
+    "filename": "IMG_0838.MOV",
+    "path": "data/raw_videos/IMG_0838.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0845",
+    "filename": "IMG_0845.MOV",
+    "path": "data/raw_videos/IMG_0845.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0850",
+    "filename": "IMG_0850.MOV",
+    "path": "data/raw_videos/IMG_0850.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0854",
+    "filename": "IMG_0854.MOV",
+    "path": "data/raw_videos/IMG_0854.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0855",
+    "filename": "IMG_0855.MOV",
+    "path": "data/raw_videos/IMG_0855.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0870",
+    "filename": "IMG_0870.MOV",
+    "path": "data/raw_videos/IMG_0870.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0874",
+    "filename": "IMG_0874.MOV",
+    "path": "data/raw_videos/IMG_0874.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0877 2",
+    "filename": "IMG_0877 2.MOV",
+    "path": "data/raw_videos/IMG_0877 2.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0877",
+    "filename": "IMG_0877.MOV",
+    "path": "data/raw_videos/IMG_0877.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0884",
+    "filename": "IMG_0884.MOV",
+    "path": "data/raw_videos/IMG_0884.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0885",
+    "filename": "IMG_0885.MOV",
+    "path": "data/raw_videos/IMG_0885.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0886",
+    "filename": "IMG_0886.MOV",
+    "path": "data/raw_videos/IMG_0886.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0887",
+    "filename": "IMG_0887.MOV",
+    "path": "data/raw_videos/IMG_0887.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0889",
+    "filename": "IMG_0889.MOV",
+    "path": "data/raw_videos/IMG_0889.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0902",
+    "filename": "IMG_0902.MOV",
+    "path": "data/raw_videos/IMG_0902.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0908",
+    "filename": "IMG_0908.MOV",
+    "path": "data/raw_videos/IMG_0908.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0910",
+    "filename": "IMG_0910.MOV",
+    "path": "data/raw_videos/IMG_0910.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0911",
+    "filename": "IMG_0911.MOV",
+    "path": "data/raw_videos/IMG_0911.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0912",
+    "filename": "IMG_0912.MOV",
+    "path": "data/raw_videos/IMG_0912.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0913",
+    "filename": "IMG_0913.MOV",
+    "path": "data/raw_videos/IMG_0913.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0914",
+    "filename": "IMG_0914.MOV",
+    "path": "data/raw_videos/IMG_0914.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0915",
+    "filename": "IMG_0915.MOV",
+    "path": "data/raw_videos/IMG_0915.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0916",
+    "filename": "IMG_0916.MOV",
+    "path": "data/raw_videos/IMG_0916.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0917",
+    "filename": "IMG_0917.MOV",
+    "path": "data/raw_videos/IMG_0917.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0918",
+    "filename": "IMG_0918.MOV",
+    "path": "data/raw_videos/IMG_0918.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0919",
+    "filename": "IMG_0919.MOV",
+    "path": "data/raw_videos/IMG_0919.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0920",
+    "filename": "IMG_0920.MOV",
+    "path": "data/raw_videos/IMG_0920.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0921",
+    "filename": "IMG_0921.MOV",
+    "path": "data/raw_videos/IMG_0921.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0925",
+    "filename": "IMG_0925.MOV",
+    "path": "data/raw_videos/IMG_0925.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0926",
+    "filename": "IMG_0926.MOV",
+    "path": "data/raw_videos/IMG_0926.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0927",
+    "filename": "IMG_0927.MOV",
+    "path": "data/raw_videos/IMG_0927.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0928",
+    "filename": "IMG_0928.MOV",
+    "path": "data/raw_videos/IMG_0928.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0929",
+    "filename": "IMG_0929.MOV",
+    "path": "data/raw_videos/IMG_0929.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0930",
+    "filename": "IMG_0930.MOV",
+    "path": "data/raw_videos/IMG_0930.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0936",
+    "filename": "IMG_0936.mov",
+    "path": "data/raw_videos/IMG_0936.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0939",
+    "filename": "IMG_0939.MOV",
+    "path": "data/raw_videos/IMG_0939.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0940",
+    "filename": "IMG_0940.MOV",
+    "path": "data/raw_videos/IMG_0940.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0945",
+    "filename": "IMG_0945.MOV",
+    "path": "data/raw_videos/IMG_0945.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0946",
+    "filename": "IMG_0946.MOV",
+    "path": "data/raw_videos/IMG_0946.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0947",
+    "filename": "IMG_0947.MOV",
+    "path": "data/raw_videos/IMG_0947.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0948",
+    "filename": "IMG_0948.MOV",
+    "path": "data/raw_videos/IMG_0948.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0949",
+    "filename": "IMG_0949.MOV",
+    "path": "data/raw_videos/IMG_0949.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0950",
+    "filename": "IMG_0950.MOV",
+    "path": "data/raw_videos/IMG_0950.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0951",
+    "filename": "IMG_0951.MOV",
+    "path": "data/raw_videos/IMG_0951.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0953",
+    "filename": "IMG_0953.MOV",
+    "path": "data/raw_videos/IMG_0953.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0954",
+    "filename": "IMG_0954.MOV",
+    "path": "data/raw_videos/IMG_0954.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0962",
+    "filename": "IMG_0962.MOV",
+    "path": "data/raw_videos/IMG_0962.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0963",
+    "filename": "IMG_0963.MOV",
+    "path": "data/raw_videos/IMG_0963.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0965",
+    "filename": "IMG_0965.MOV",
+    "path": "data/raw_videos/IMG_0965.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0966",
+    "filename": "IMG_0966.MOV",
+    "path": "data/raw_videos/IMG_0966.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0967",
+    "filename": "IMG_0967.MOV",
+    "path": "data/raw_videos/IMG_0967.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0968",
+    "filename": "IMG_0968.MOV",
+    "path": "data/raw_videos/IMG_0968.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0970",
+    "filename": "IMG_0970.MOV",
+    "path": "data/raw_videos/IMG_0970.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0971",
+    "filename": "IMG_0971.MOV",
+    "path": "data/raw_videos/IMG_0971.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0972",
+    "filename": "IMG_0972.MOV",
+    "path": "data/raw_videos/IMG_0972.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0973",
+    "filename": "IMG_0973.MOV",
+    "path": "data/raw_videos/IMG_0973.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0975",
+    "filename": "IMG_0975.MOV",
+    "path": "data/raw_videos/IMG_0975.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0976",
+    "filename": "IMG_0976.MOV",
+    "path": "data/raw_videos/IMG_0976.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0979",
+    "filename": "IMG_0979.MOV",
+    "path": "data/raw_videos/IMG_0979.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0983",
+    "filename": "IMG_0983.MOV",
+    "path": "data/raw_videos/IMG_0983.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0985",
+    "filename": "IMG_0985.MOV",
+    "path": "data/raw_videos/IMG_0985.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0986",
+    "filename": "IMG_0986.MOV",
+    "path": "data/raw_videos/IMG_0986.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0987",
+    "filename": "IMG_0987.MOV",
+    "path": "data/raw_videos/IMG_0987.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0988",
+    "filename": "IMG_0988.MOV",
+    "path": "data/raw_videos/IMG_0988.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0989",
+    "filename": "IMG_0989.MOV",
+    "path": "data/raw_videos/IMG_0989.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_0993",
+    "filename": "IMG_0993.MOV",
+    "path": "data/raw_videos/IMG_0993.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1023",
+    "filename": "IMG_1023.MOV",
+    "path": "data/raw_videos/IMG_1023.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1027",
+    "filename": "IMG_1027.MOV",
+    "path": "data/raw_videos/IMG_1027.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1029",
+    "filename": "IMG_1029.MOV",
+    "path": "data/raw_videos/IMG_1029.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1030",
+    "filename": "IMG_1030.MOV",
+    "path": "data/raw_videos/IMG_1030.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1099",
+    "filename": "IMG_1099.mov",
+    "path": "data/raw_videos/IMG_1099.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1100",
+    "filename": "IMG_1100.MOV",
+    "path": "data/raw_videos/IMG_1100.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1193",
+    "filename": "IMG_1193.MOV",
+    "path": "data/raw_videos/IMG_1193.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1225",
+    "filename": "IMG_1225.MOV",
+    "path": "data/raw_videos/IMG_1225.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1372",
+    "filename": "IMG_1372.mov",
+    "path": "data/raw_videos/IMG_1372.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1443",
+    "filename": "IMG_1443.MOV",
+    "path": "data/raw_videos/IMG_1443.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1668",
+    "filename": "IMG_1668.MOV",
+    "path": "data/raw_videos/IMG_1668.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1867",
+    "filename": "IMG_1867.MOV",
+    "path": "data/raw_videos/IMG_1867.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_1898",
+    "filename": "IMG_1898.MOV",
+    "path": "data/raw_videos/IMG_1898.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2070",
+    "filename": "IMG_2070.MOV",
+    "path": "data/raw_videos/IMG_2070.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2071",
+    "filename": "IMG_2071.MOV",
+    "path": "data/raw_videos/IMG_2071.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2111",
+    "filename": "IMG_2111.MOV",
+    "path": "data/raw_videos/IMG_2111.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2141",
+    "filename": "IMG_2141.MOV",
+    "path": "data/raw_videos/IMG_2141.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2142",
+    "filename": "IMG_2142.MOV",
+    "path": "data/raw_videos/IMG_2142.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2357",
+    "filename": "IMG_2357.mov",
+    "path": "data/raw_videos/IMG_2357.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2392",
+    "filename": "IMG_2392.MOV",
+    "path": "data/raw_videos/IMG_2392.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2393",
+    "filename": "IMG_2393.MOV",
+    "path": "data/raw_videos/IMG_2393.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2394",
+    "filename": "IMG_2394.MOV",
+    "path": "data/raw_videos/IMG_2394.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2395",
+    "filename": "IMG_2395.MOV",
+    "path": "data/raw_videos/IMG_2395.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2401",
+    "filename": "IMG_2401.MOV",
+    "path": "data/raw_videos/IMG_2401.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2402",
+    "filename": "IMG_2402.MOV",
+    "path": "data/raw_videos/IMG_2402.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2428",
+    "filename": "IMG_2428.MOV",
+    "path": "data/raw_videos/IMG_2428.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2469",
+    "filename": "IMG_2469.MOV",
+    "path": "data/raw_videos/IMG_2469.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2470",
+    "filename": "IMG_2470.MOV",
+    "path": "data/raw_videos/IMG_2470.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2471",
+    "filename": "IMG_2471.MOV",
+    "path": "data/raw_videos/IMG_2471.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2472",
+    "filename": "IMG_2472.MOV",
+    "path": "data/raw_videos/IMG_2472.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2505",
+    "filename": "IMG_2505.MOV",
+    "path": "data/raw_videos/IMG_2505.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2506",
+    "filename": "IMG_2506.MOV",
+    "path": "data/raw_videos/IMG_2506.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2762",
+    "filename": "IMG_2762.MOV",
+    "path": "data/raw_videos/IMG_2762.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2763",
+    "filename": "IMG_2763.MOV",
+    "path": "data/raw_videos/IMG_2763.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2817",
+    "filename": "IMG_2817.MOV",
+    "path": "data/raw_videos/IMG_2817.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2818 (1)",
+    "filename": "IMG_2818 (1).mov",
+    "path": "data/raw_videos/IMG_2818 (1).mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2818",
+    "filename": "IMG_2818.mov",
+    "path": "data/raw_videos/IMG_2818.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2832",
+    "filename": "IMG_2832.MOV",
+    "path": "data/raw_videos/IMG_2832.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2861",
+    "filename": "IMG_2861.MOV",
+    "path": "data/raw_videos/IMG_2861.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2862",
+    "filename": "IMG_2862.MOV",
+    "path": "data/raw_videos/IMG_2862.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2863",
+    "filename": "IMG_2863.MOV",
+    "path": "data/raw_videos/IMG_2863.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2881",
+    "filename": "IMG_2881.mov",
+    "path": "data/raw_videos/IMG_2881.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2883",
+    "filename": "IMG_2883.MOV",
+    "path": "data/raw_videos/IMG_2883.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2901",
+    "filename": "IMG_2901.MOV",
+    "path": "data/raw_videos/IMG_2901.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_2902",
+    "filename": "IMG_2902.MOV",
+    "path": "data/raw_videos/IMG_2902.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_3445",
+    "filename": "IMG_3445.MOV",
+    "path": "data/raw_videos/IMG_3445.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_3760",
+    "filename": "IMG_3760.MOV",
+    "path": "data/raw_videos/IMG_3760.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_3892",
+    "filename": "IMG_3892.MOV",
+    "path": "data/raw_videos/IMG_3892.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_3988",
+    "filename": "IMG_3988.MOV",
+    "path": "data/raw_videos/IMG_3988.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_4648",
+    "filename": "IMG_4648.MOV",
+    "path": "data/raw_videos/IMG_4648.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5558",
+    "filename": "IMG_5558.MOV",
+    "path": "data/raw_videos/IMG_5558.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5590",
+    "filename": "IMG_5590.MOV",
+    "path": "data/raw_videos/IMG_5590.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5603",
+    "filename": "IMG_5603.MOV",
+    "path": "data/raw_videos/IMG_5603.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5604",
+    "filename": "IMG_5604.MOV",
+    "path": "data/raw_videos/IMG_5604.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5711",
+    "filename": "IMG_5711.MOV",
+    "path": "data/raw_videos/IMG_5711.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5728",
+    "filename": "IMG_5728.MOV",
+    "path": "data/raw_videos/IMG_5728.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5747",
+    "filename": "IMG_5747.MOV",
+    "path": "data/raw_videos/IMG_5747.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5748",
+    "filename": "IMG_5748.MOV",
+    "path": "data/raw_videos/IMG_5748.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5764",
+    "filename": "IMG_5764.MOV",
+    "path": "data/raw_videos/IMG_5764.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5765",
+    "filename": "IMG_5765.MOV",
+    "path": "data/raw_videos/IMG_5765.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5766",
+    "filename": "IMG_5766.MOV",
+    "path": "data/raw_videos/IMG_5766.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5767",
+    "filename": "IMG_5767.MOV",
+    "path": "data/raw_videos/IMG_5767.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5768",
+    "filename": "IMG_5768.MOV",
+    "path": "data/raw_videos/IMG_5768.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5769",
+    "filename": "IMG_5769.MOV",
+    "path": "data/raw_videos/IMG_5769.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5790",
+    "filename": "IMG_5790.MOV",
+    "path": "data/raw_videos/IMG_5790.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5819",
+    "filename": "IMG_5819.MOV",
+    "path": "data/raw_videos/IMG_5819.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5859",
+    "filename": "IMG_5859.MOV",
+    "path": "data/raw_videos/IMG_5859.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5860",
+    "filename": "IMG_5860.MOV",
+    "path": "data/raw_videos/IMG_5860.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5861",
+    "filename": "IMG_5861.MOV",
+    "path": "data/raw_videos/IMG_5861.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5862",
+    "filename": "IMG_5862.MOV",
+    "path": "data/raw_videos/IMG_5862.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5864",
+    "filename": "IMG_5864.MOV",
+    "path": "data/raw_videos/IMG_5864.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5865",
+    "filename": "IMG_5865.MOV",
+    "path": "data/raw_videos/IMG_5865.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5868",
+    "filename": "IMG_5868.MOV",
+    "path": "data/raw_videos/IMG_5868.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5869",
+    "filename": "IMG_5869.MOV",
+    "path": "data/raw_videos/IMG_5869.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5870",
+    "filename": "IMG_5870.MOV",
+    "path": "data/raw_videos/IMG_5870.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5876",
+    "filename": "IMG_5876.mov",
+    "path": "data/raw_videos/IMG_5876.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5879",
+    "filename": "IMG_5879.MOV",
+    "path": "data/raw_videos/IMG_5879.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5880",
+    "filename": "IMG_5880.MOV",
+    "path": "data/raw_videos/IMG_5880.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5881",
+    "filename": "IMG_5881.mov",
+    "path": "data/raw_videos/IMG_5881.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5887",
+    "filename": "IMG_5887.MOV",
+    "path": "data/raw_videos/IMG_5887.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5888",
+    "filename": "IMG_5888.MOV",
+    "path": "data/raw_videos/IMG_5888.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5889",
+    "filename": "IMG_5889.MOV",
+    "path": "data/raw_videos/IMG_5889.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5890",
+    "filename": "IMG_5890.MOV",
+    "path": "data/raw_videos/IMG_5890.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5908",
+    "filename": "IMG_5908.MOV",
+    "path": "data/raw_videos/IMG_5908.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5909",
+    "filename": "IMG_5909.MOV",
+    "path": "data/raw_videos/IMG_5909.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5910",
+    "filename": "IMG_5910.MOV",
+    "path": "data/raw_videos/IMG_5910.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5911",
+    "filename": "IMG_5911.MOV",
+    "path": "data/raw_videos/IMG_5911.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5927",
+    "filename": "IMG_5927.MOV",
+    "path": "data/raw_videos/IMG_5927.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5928",
+    "filename": "IMG_5928.MOV",
+    "path": "data/raw_videos/IMG_5928.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5931",
+    "filename": "IMG_5931.MOV",
+    "path": "data/raw_videos/IMG_5931.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5952",
+    "filename": "IMG_5952.MOV",
+    "path": "data/raw_videos/IMG_5952.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_5953",
+    "filename": "IMG_5953.MOV",
+    "path": "data/raw_videos/IMG_5953.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6048",
+    "filename": "IMG_6048.MOV",
+    "path": "data/raw_videos/IMG_6048.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6059",
+    "filename": "IMG_6059.MOV",
+    "path": "data/raw_videos/IMG_6059.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6102",
+    "filename": "IMG_6102.MOV",
+    "path": "data/raw_videos/IMG_6102.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6112",
+    "filename": "IMG_6112.MOV",
+    "path": "data/raw_videos/IMG_6112.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6115",
+    "filename": "IMG_6115.MOV",
+    "path": "data/raw_videos/IMG_6115.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6116",
+    "filename": "IMG_6116.MOV",
+    "path": "data/raw_videos/IMG_6116.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6127",
+    "filename": "IMG_6127.MOV",
+    "path": "data/raw_videos/IMG_6127.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6128",
+    "filename": "IMG_6128.MOV",
+    "path": "data/raw_videos/IMG_6128.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6129",
+    "filename": "IMG_6129.MOV",
+    "path": "data/raw_videos/IMG_6129.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6131",
+    "filename": "IMG_6131.MOV",
+    "path": "data/raw_videos/IMG_6131.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6132",
+    "filename": "IMG_6132.MOV",
+    "path": "data/raw_videos/IMG_6132.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_6137",
+    "filename": "IMG_6137.mov",
+    "path": "data/raw_videos/IMG_6137.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7028",
+    "filename": "IMG_7028.MOV",
+    "path": "data/raw_videos/IMG_7028.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7038",
+    "filename": "IMG_7038.MOV",
+    "path": "data/raw_videos/IMG_7038.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7039",
+    "filename": "IMG_7039.MOV",
+    "path": "data/raw_videos/IMG_7039.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7052",
+    "filename": "IMG_7052.MOV",
+    "path": "data/raw_videos/IMG_7052.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7053",
+    "filename": "IMG_7053.MOV",
+    "path": "data/raw_videos/IMG_7053.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7054",
+    "filename": "IMG_7054.MOV",
+    "path": "data/raw_videos/IMG_7054.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7078",
+    "filename": "IMG_7078.MOV",
+    "path": "data/raw_videos/IMG_7078.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7079",
+    "filename": "IMG_7079.MOV",
+    "path": "data/raw_videos/IMG_7079.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7140",
+    "filename": "IMG_7140.MOV",
+    "path": "data/raw_videos/IMG_7140.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7155",
+    "filename": "IMG_7155.MOV",
+    "path": "data/raw_videos/IMG_7155.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7162",
+    "filename": "IMG_7162.MOV",
+    "path": "data/raw_videos/IMG_7162.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7166",
+    "filename": "IMG_7166.MOV",
+    "path": "data/raw_videos/IMG_7166.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7179",
+    "filename": "IMG_7179.MOV",
+    "path": "data/raw_videos/IMG_7179.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7180",
+    "filename": "IMG_7180.MOV",
+    "path": "data/raw_videos/IMG_7180.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7224",
+    "filename": "IMG_7224.MOV",
+    "path": "data/raw_videos/IMG_7224.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7225",
+    "filename": "IMG_7225.MOV",
+    "path": "data/raw_videos/IMG_7225.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7226",
+    "filename": "IMG_7226.MOV",
+    "path": "data/raw_videos/IMG_7226.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7236",
+    "filename": "IMG_7236.MOV",
+    "path": "data/raw_videos/IMG_7236.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7237",
+    "filename": "IMG_7237.MOV",
+    "path": "data/raw_videos/IMG_7237.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7238",
+    "filename": "IMG_7238.MOV",
+    "path": "data/raw_videos/IMG_7238.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7254",
+    "filename": "IMG_7254.MOV",
+    "path": "data/raw_videos/IMG_7254.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7255",
+    "filename": "IMG_7255.MOV",
+    "path": "data/raw_videos/IMG_7255.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7256",
+    "filename": "IMG_7256.MOV",
+    "path": "data/raw_videos/IMG_7256.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7257",
+    "filename": "IMG_7257.MOV",
+    "path": "data/raw_videos/IMG_7257.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7258",
+    "filename": "IMG_7258.MOV",
+    "path": "data/raw_videos/IMG_7258.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7266",
+    "filename": "IMG_7266.MOV",
+    "path": "data/raw_videos/IMG_7266.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7267",
+    "filename": "IMG_7267.MOV",
+    "path": "data/raw_videos/IMG_7267.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7268",
+    "filename": "IMG_7268.MOV",
+    "path": "data/raw_videos/IMG_7268.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7269",
+    "filename": "IMG_7269.MOV",
+    "path": "data/raw_videos/IMG_7269.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7281",
+    "filename": "IMG_7281.MOV",
+    "path": "data/raw_videos/IMG_7281.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7282",
+    "filename": "IMG_7282.MOV",
+    "path": "data/raw_videos/IMG_7282.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7283",
+    "filename": "IMG_7283.MOV",
+    "path": "data/raw_videos/IMG_7283.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7322",
+    "filename": "IMG_7322.MOV",
+    "path": "data/raw_videos/IMG_7322.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7323",
+    "filename": "IMG_7323.MOV",
+    "path": "data/raw_videos/IMG_7323.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7392",
+    "filename": "IMG_7392.MOV",
+    "path": "data/raw_videos/IMG_7392.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7397",
+    "filename": "IMG_7397.MOV",
+    "path": "data/raw_videos/IMG_7397.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7398",
+    "filename": "IMG_7398.MOV",
+    "path": "data/raw_videos/IMG_7398.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7399",
+    "filename": "IMG_7399.MOV",
+    "path": "data/raw_videos/IMG_7399.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7417",
+    "filename": "IMG_7417.MOV",
+    "path": "data/raw_videos/IMG_7417.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7445",
+    "filename": "IMG_7445.MOV",
+    "path": "data/raw_videos/IMG_7445.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7449",
+    "filename": "IMG_7449.MOV",
+    "path": "data/raw_videos/IMG_7449.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7450",
+    "filename": "IMG_7450.MOV",
+    "path": "data/raw_videos/IMG_7450.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7451",
+    "filename": "IMG_7451.MOV",
+    "path": "data/raw_videos/IMG_7451.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7452",
+    "filename": "IMG_7452.MOV",
+    "path": "data/raw_videos/IMG_7452.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7455",
+    "filename": "IMG_7455.MOV",
+    "path": "data/raw_videos/IMG_7455.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7456",
+    "filename": "IMG_7456.MOV",
+    "path": "data/raw_videos/IMG_7456.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7460",
+    "filename": "IMG_7460.MOV",
+    "path": "data/raw_videos/IMG_7460.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7478",
+    "filename": "IMG_7478.MOV",
+    "path": "data/raw_videos/IMG_7478.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7479",
+    "filename": "IMG_7479.MOV",
+    "path": "data/raw_videos/IMG_7479.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7480",
+    "filename": "IMG_7480.MOV",
+    "path": "data/raw_videos/IMG_7480.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7486",
+    "filename": "IMG_7486.MOV",
+    "path": "data/raw_videos/IMG_7486.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7487",
+    "filename": "IMG_7487.MOV",
+    "path": "data/raw_videos/IMG_7487.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7512",
+    "filename": "IMG_7512.MOV",
+    "path": "data/raw_videos/IMG_7512.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7513",
+    "filename": "IMG_7513.MOV",
+    "path": "data/raw_videos/IMG_7513.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7556",
+    "filename": "IMG_7556.MOV",
+    "path": "data/raw_videos/IMG_7556.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7574",
+    "filename": "IMG_7574.mov",
+    "path": "data/raw_videos/IMG_7574.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7593",
+    "filename": "IMG_7593.MOV",
+    "path": "data/raw_videos/IMG_7593.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7594",
+    "filename": "IMG_7594.MOV",
+    "path": "data/raw_videos/IMG_7594.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7606",
+    "filename": "IMG_7606.MOV",
+    "path": "data/raw_videos/IMG_7606.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7607",
+    "filename": "IMG_7607.MOV",
+    "path": "data/raw_videos/IMG_7607.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7609",
+    "filename": "IMG_7609.MOV",
+    "path": "data/raw_videos/IMG_7609.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7610",
+    "filename": "IMG_7610.MOV",
+    "path": "data/raw_videos/IMG_7610.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7611",
+    "filename": "IMG_7611.MOV",
+    "path": "data/raw_videos/IMG_7611.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7669",
+    "filename": "IMG_7669.MOV",
+    "path": "data/raw_videos/IMG_7669.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7683",
+    "filename": "IMG_7683.MOV",
+    "path": "data/raw_videos/IMG_7683.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7696",
+    "filename": "IMG_7696.MOV",
+    "path": "data/raw_videos/IMG_7696.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7705",
+    "filename": "IMG_7705.mov",
+    "path": "data/raw_videos/IMG_7705.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7745",
+    "filename": "IMG_7745.MOV",
+    "path": "data/raw_videos/IMG_7745.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7746",
+    "filename": "IMG_7746.MOV",
+    "path": "data/raw_videos/IMG_7746.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7808",
+    "filename": "IMG_7808.MOV",
+    "path": "data/raw_videos/IMG_7808.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7817",
+    "filename": "IMG_7817.MOV",
+    "path": "data/raw_videos/IMG_7817.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7818",
+    "filename": "IMG_7818.MOV",
+    "path": "data/raw_videos/IMG_7818.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7866",
+    "filename": "IMG_7866.MOV",
+    "path": "data/raw_videos/IMG_7866.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7868",
+    "filename": "IMG_7868.MOV",
+    "path": "data/raw_videos/IMG_7868.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7875",
+    "filename": "IMG_7875.MOV",
+    "path": "data/raw_videos/IMG_7875.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7898",
+    "filename": "IMG_7898.MOV",
+    "path": "data/raw_videos/IMG_7898.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_7899 (3)",
+    "filename": "IMG_7899 (3).mov",
+    "path": "data/raw_videos/IMG_7899 (3).mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8087",
+    "filename": "IMG_8087.MOV",
+    "path": "data/raw_videos/IMG_8087.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8088",
+    "filename": "IMG_8088.MOV",
+    "path": "data/raw_videos/IMG_8088.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8128",
+    "filename": "IMG_8128.MOV",
+    "path": "data/raw_videos/IMG_8128.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8252",
+    "filename": "IMG_8252.MOV",
+    "path": "data/raw_videos/IMG_8252.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8316",
+    "filename": "IMG_8316.MOV",
+    "path": "data/raw_videos/IMG_8316.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8320",
+    "filename": "IMG_8320.MOV",
+    "path": "data/raw_videos/IMG_8320.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8332",
+    "filename": "IMG_8332.MOV",
+    "path": "data/raw_videos/IMG_8332.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8350",
+    "filename": "IMG_8350.MOV",
+    "path": "data/raw_videos/IMG_8350.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8351",
+    "filename": "IMG_8351.MOV",
+    "path": "data/raw_videos/IMG_8351.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8563",
+    "filename": "IMG_8563.MOV",
+    "path": "data/raw_videos/IMG_8563.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8574",
+    "filename": "IMG_8574.MOV",
+    "path": "data/raw_videos/IMG_8574.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8604",
+    "filename": "IMG_8604.mov",
+    "path": "data/raw_videos/IMG_8604.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8623",
+    "filename": "IMG_8623.mov",
+    "path": "data/raw_videos/IMG_8623.mov",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8624",
+    "filename": "IMG_8624.MOV",
+    "path": "data/raw_videos/IMG_8624.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8914",
+    "filename": "IMG_8914.MOV",
+    "path": "data/raw_videos/IMG_8914.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8915",
+    "filename": "IMG_8915.MOV",
+    "path": "data/raw_videos/IMG_8915.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_8916",
+    "filename": "IMG_8916.MOV",
+    "path": "data/raw_videos/IMG_8916.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9088",
+    "filename": "IMG_9088.MOV",
+    "path": "data/raw_videos/IMG_9088.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9089",
+    "filename": "IMG_9089.MOV",
+    "path": "data/raw_videos/IMG_9089.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9100",
+    "filename": "IMG_9100.MOV",
+    "path": "data/raw_videos/IMG_9100.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9101",
+    "filename": "IMG_9101.MOV",
+    "path": "data/raw_videos/IMG_9101.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9132",
+    "filename": "IMG_9132.MOV",
+    "path": "data/raw_videos/IMG_9132.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9133",
+    "filename": "IMG_9133.MOV",
+    "path": "data/raw_videos/IMG_9133.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9134",
+    "filename": "IMG_9134.MOV",
+    "path": "data/raw_videos/IMG_9134.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9135",
+    "filename": "IMG_9135.MOV",
+    "path": "data/raw_videos/IMG_9135.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9194",
+    "filename": "IMG_9194.MOV",
+    "path": "data/raw_videos/IMG_9194.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9195",
+    "filename": "IMG_9195.MOV",
+    "path": "data/raw_videos/IMG_9195.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9197",
+    "filename": "IMG_9197.MOV",
+    "path": "data/raw_videos/IMG_9197.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9199",
+    "filename": "IMG_9199.MOV",
+    "path": "data/raw_videos/IMG_9199.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9220",
+    "filename": "IMG_9220.MOV",
+    "path": "data/raw_videos/IMG_9220.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9221",
+    "filename": "IMG_9221.MOV",
+    "path": "data/raw_videos/IMG_9221.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9230",
+    "filename": "IMG_9230.MOV",
+    "path": "data/raw_videos/IMG_9230.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9231",
+    "filename": "IMG_9231.MOV",
+    "path": "data/raw_videos/IMG_9231.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9299",
+    "filename": "IMG_9299.MOV",
+    "path": "data/raw_videos/IMG_9299.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9381",
+    "filename": "IMG_9381.MOV",
+    "path": "data/raw_videos/IMG_9381.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9419",
+    "filename": "IMG_9419.MOV",
+    "path": "data/raw_videos/IMG_9419.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9433",
+    "filename": "IMG_9433.MOV",
+    "path": "data/raw_videos/IMG_9433.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9454",
+    "filename": "IMG_9454.MOV",
+    "path": "data/raw_videos/IMG_9454.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9462",
+    "filename": "IMG_9462.MOV",
+    "path": "data/raw_videos/IMG_9462.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9464",
+    "filename": "IMG_9464.MOV",
+    "path": "data/raw_videos/IMG_9464.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9465",
+    "filename": "IMG_9465.MOV",
+    "path": "data/raw_videos/IMG_9465.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
+    "id": "IMG_9525",
+    "filename": "IMG_9525.MOV",
+    "path": "data/raw_videos/IMG_9525.MOV",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
     "id": "test",
     "filename": "test.mov",
     "path": "data/raw_videos/test.mov",

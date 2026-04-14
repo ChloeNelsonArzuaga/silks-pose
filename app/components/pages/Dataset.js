@@ -9,6 +9,7 @@ export function Dataset() {
             <div class="dataset-filters">
                 <button class="filter-btn filter-active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="unassigned">Unassigned</button>
+                <button class="filter-btn" data-filter="labeled">Labeled</button>
                 <button class="filter-btn" data-filter="train">Train</button>
                 <button class="filter-btn" data-filter="test">Test</button>
                 <button class="filter-btn" data-filter="unused">Unused</button>
@@ -67,11 +68,12 @@ export function Dataset() {
     });
 
     function renderStats() {
-        const counts = { train: 0, test: 0, unused: 0, unassigned: 0 };
+        const counts = { train: 0, test: 0, labeled: 0, unused: 0, unassigned: 0 };
         videos.forEach(v => counts[v.split] = (counts[v.split] || 0) + 1);
         statsEl.innerHTML = `
             <span class="stat-pill stat-train">${counts.train} train</span>
             <span class="stat-pill stat-test">${counts.test} test</span>
+            <span class="stat-pill stat-labeled">${counts.labeled} labeled</span>
             <span class="stat-pill stat-unused">${counts.unused} unused</span>
             <span class="stat-pill stat-unassigned">${counts.unassigned} unassigned</span>
         `;
@@ -95,6 +97,7 @@ export function Dataset() {
                 <div class="dataset-card-split">
                     <button class="split-btn ${v.split === 'train' ? 'split-active' : ''}" data-split="train" data-id="${v.id}">Train</button>
                     <button class="split-btn ${v.split === 'test' ? 'split-active' : ''}" data-split="test" data-id="${v.id}">Test</button>
+                    <button class="split-btn ${v.split === 'labeled' ? 'split-active' : ''}" data-split="labeled" data-id="${v.id}">Labeled</button>
                     <button class="split-btn ${v.split === 'unused' ? 'split-active' : ''}" data-split="unused" data-id="${v.id}">Unused</button>
                     <button class="split-btn ${v.split === 'unassigned' ? 'split-active' : ''}" data-split="unassigned" data-id="${v.id}">—</button>
                 </div>

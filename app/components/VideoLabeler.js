@@ -11,14 +11,17 @@ export function VideoLabeler() {
         <div class="labeler-header">
             <h3>Pose Labeler</h3>
             <div class="labeler-video-select">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-prev-video">&larr;</button>
                 <select id="video-select">
                     <option value="">Loading videos...</option>
                 </select>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-next-video">&rarr;</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-hide-labeled">Hide Labeled</button>
             </div>
         </div>
         <div class="labeler-workspace">
             <div class="labeler-player">
-                <video id="labeler-video" controls></video>
+                <video id="labeler-video" controls playsinline></video>
                 <div class="labeler-time">
                     <span id="labeler-current-time">0:00</span> / <span id="labeler-duration">0:00</span>
                     &mdash; Frame: <span id="labeler-frame">0</span>
@@ -26,41 +29,43 @@ export function VideoLabeler() {
             </div>
             <div class="labeler-controls">
                 <div class="labeler-scrub">
-                    <button class="btn btn-secondary btn-sm" id="btn-back-5">-5s</button>
-                    <button class="btn btn-secondary btn-sm" id="btn-back-1">-1s</button>
-                    <button class="btn btn-secondary btn-sm" id="btn-prev-frame">&lt; Frame</button>
-                    <button class="btn btn-secondary btn-sm" id="btn-next-frame">Frame &gt;</button>
-                    <button class="btn btn-secondary btn-sm" id="btn-fwd-1">+1s</button>
-                    <button class="btn btn-secondary btn-sm" id="btn-fwd-5">+5s</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-back-5">-5s</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-back-1">-1s</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-prev-frame">&lt; Frame</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-next-frame">Frame &gt;</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-fwd-1">+1s</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-fwd-5">+5s</button>
                 </div>
                 <div class="labeler-range">
-                    <button class="btn btn-secondary btn-sm" id="btn-mark-in">Set In</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-mark-in">Set In</button>
                     <span class="range-display" id="range-display">No range set</span>
-                    <button class="btn btn-secondary btn-sm" id="btn-mark-out">Set Out</button>
-                    <button class="btn btn-secondary btn-sm" id="btn-clear-range">Clear</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-mark-out">Set Out</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-range">Clear</button>
                 </div>
                 <div class="labeler-input">
                     <input type="text" id="pose-label" placeholder="Enter pose name..." />
-                    <button class="btn btn-primary btn-sm" id="btn-add-label">Label</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btn-add-label">Label</button>
                 </div>
                 <div class="labeler-labels" id="labels-list">
                     <p class="labeler-empty">No labels yet. Scrub to a pose and add a label.</p>
                 </div>
                 <div class="labeler-section-title">Dataset Split</div>
                 <div class="split-selector" id="split-selector">
-                    <button class="split-btn" data-split="train">Train</button>
-                    <button class="split-btn" data-split="test">Test</button>
-                    <button class="split-btn" data-split="unused">Unused</button>
-                    <button class="split-btn" data-split="unassigned">Unassigned</button>
+                    <button type="button" class="split-btn" data-split="train">Train</button>
+                    <button type="button" class="split-btn" data-split="test">Test</button>
+                    <button type="button" class="split-btn" data-split="labeled">Labeled</button>
+                    <button type="button" class="split-btn" data-split="unused">Unused</button>
+                    <button type="button" class="split-btn" data-split="unassigned">Unassigned</button>
                 </div>
                 <div class="labeler-section-title">Video Tags</div>
                 <div class="tagger-chips" id="tagger-chips"></div>
                 <div class="tagger-input-row">
                     <input type="text" id="tag-input" placeholder="New tag..." />
-                    <button class="btn btn-secondary btn-sm" id="btn-add-tag">Add</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-add-tag">Add</button>
                 </div>
                 <div class="labeler-actions">
-                    <button class="btn btn-secondary btn-sm" id="btn-export">Export Labels (JSON)</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-export">Export This Video</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btn-export-all">Export All Videos</button>
                 </div>
             </div>
         </div>
@@ -68,6 +73,7 @@ export function VideoLabeler() {
 
     // State
     let videos = [];
+    let hideLabeled = false;
     let labels = [];  // { videoId, startTime, endTime, startFrame, endFrame, label }
     let fps = 30;
     let markIn = null;   // in-point time in seconds
@@ -93,10 +99,9 @@ export function VideoLabeler() {
         .then(r => r.json())
         .then(data => {
             videos = data;
-            select.innerHTML = videos.map(v =>
-                `<option value="${v.path}">${v.filename}</option>`
-            ).join('');
-            if (videos.length > 0) loadVideo(videos[0]);
+            populateSelect();
+            const first = visibleVideos()[0];
+            if (first) loadVideo(first);
         })
         .catch(() => {
             select.innerHTML = '<option>No videos found — run generate_manifest.py</option>';
@@ -105,6 +110,43 @@ export function VideoLabeler() {
     select.addEventListener('change', () => {
         const v = videos.find(v => v.path === select.value);
         if (v) loadVideo(v);
+    });
+
+    function visibleVideos() {
+        if (!hideLabeled) return videos;
+        return videos.filter(v => {
+            const split = localStorage.getItem(`video_split_${v.id}`) || v.split || 'unassigned';
+            return split !== 'labeled' && split !== 'train' && split !== 'test';
+        });
+    }
+
+    function populateSelect() {
+        const visible = visibleVideos();
+        select.innerHTML = visible.map(v =>
+            `<option value="${v.path}">${v.filename}</option>`
+        ).join('');
+    }
+
+    const hideLabeledBtn = container.querySelector('#btn-hide-labeled');
+    hideLabeledBtn.addEventListener('click', () => {
+        hideLabeled = !hideLabeled;
+        hideLabeledBtn.textContent = hideLabeled ? 'Show All' : 'Hide Labeled';
+        hideLabeledBtn.classList.toggle('filter-active', hideLabeled);
+        populateSelect();
+        const first = visibleVideos()[0];
+        if (first) { select.value = first.path; loadVideo(first); }
+    });
+
+    container.querySelector('#btn-prev-video').addEventListener('click', () => {
+        const visible = visibleVideos();
+        const idx = visible.findIndex(v => v.path === select.value);
+        if (idx > 0) { select.value = visible[idx - 1].path; loadVideo(visible[idx - 1]); }
+    });
+
+    container.querySelector('#btn-next-video').addEventListener('click', () => {
+        const visible = visibleVideos();
+        const idx = visible.findIndex(v => v.path === select.value);
+        if (idx !== -1 && idx < visible.length - 1) { select.value = visible[idx + 1].path; loadVideo(visible[idx + 1]); }
     });
 
     function loadVideo(v) {
@@ -147,16 +189,22 @@ export function VideoLabeler() {
     }
 
     // Scrub controls
-    container.querySelector('#btn-back-5').addEventListener('click', () => seek(-5));
-    container.querySelector('#btn-back-1').addEventListener('click', () => seek(-1));
-    container.querySelector('#btn-fwd-1').addEventListener('click', () => seek(1));
-    container.querySelector('#btn-fwd-5').addEventListener('click', () => seek(5));
-    container.querySelector('#btn-prev-frame').addEventListener('click', () => seek(-1 / fps));
-    container.querySelector('#btn-next-frame').addEventListener('click', () => seek(1 / fps));
-
-    function seek(delta) {
-        video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + delta));
+    function seek(e, delta) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (video.readyState < 1) return; // metadata not loaded yet
+        const t = video.currentTime + delta;
+        video.currentTime = Math.max(0, Math.min(video.duration, t));
     }
+
+    container.querySelector('#btn-back-5').addEventListener('click', (e) => seek(e, -5));
+    container.querySelector('#btn-back-1').addEventListener('click', (e) => seek(e, -1));
+    container.querySelector('#btn-fwd-1').addEventListener('click', (e) => seek(e, 1));
+    container.querySelector('#btn-fwd-5').addEventListener('click', (e) => seek(e, 5));
+    container.querySelector('#btn-prev-frame').addEventListener('click', (e) => seek(e, -1 / fps));
+    container.querySelector('#btn-next-frame').addEventListener('click', (e) => seek(e, 1 / fps));
+
+
 
     // Range controls
     container.querySelector('#btn-mark-in').addEventListener('click', () => {
@@ -240,15 +288,29 @@ export function VideoLabeler() {
             const frameStr = isRange
                 ? `f${l.startFrame}–${l.endFrame}`
                 : `f${l.startFrame}`;
+            const idx = labels.indexOf(l);
             return `
                 <div class="label-entry">
                     <span class="label-time" data-time="${l.startTime}">${timeStr}</span>
                     <span class="label-frame">${frameStr}</span>
-                    <span class="label-text">${l.label}</span>
-                    <button class="label-delete" data-index="${labels.indexOf(l)}">&times;</button>
+                    <span class="label-text" contenteditable="true" data-index="${idx}">${l.label}</span>
+                    <button type="button" class="label-delete" data-index="${idx}">&times;</button>
                 </div>
             `;
         }).join('');
+
+        // Edit label text inline
+        labelsList.querySelectorAll('.label-text').forEach(el => {
+            el.addEventListener('blur', () => {
+                const idx = parseInt(el.dataset.index);
+                labels[idx].label = el.textContent.trim();
+                const v = videos.find(v => v.path === select.value);
+                saveLabels(v);
+            });
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') { e.preventDefault(); el.blur(); }
+            });
+        });
 
         // Click time to seek
         labelsList.querySelectorAll('.label-time').forEach(el => {
@@ -347,23 +409,34 @@ export function VideoLabeler() {
         });
     }
 
-    // Export
-    container.querySelector('#btn-export').addEventListener('click', () => {
-        const v = videos.find(v => v.path === select.value);
-        const payload = {
-            id: v ? v.id : 'unknown',
-            filename: v ? v.filename : 'unknown',
-            split: videoSplit,
-            tags: videoTags,
-            labels,
-        };
-        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    function buildPayload(v) {
+        const savedLabels = JSON.parse(localStorage.getItem(`labels_${v.id}`) || '[]');
+        const savedTags   = JSON.parse(localStorage.getItem(`video_tags_${v.id}`) || '[]');
+        const savedSplit  = localStorage.getItem(`video_split_${v.id}`) || 'unassigned';
+        return { id: v.id, filename: v.filename, split: savedSplit, tags: savedTags, labels: savedLabels };
+    }
+
+    function download(filename, data) {
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `${v ? v.id : 'labels'}_labels.json`;
+        a.download = filename;
         a.click();
         URL.revokeObjectURL(url);
+    }
+
+    // Export current video
+    container.querySelector('#btn-export').addEventListener('click', () => {
+        const v = videos.find(v => v.path === select.value);
+        if (!v) return;
+        download(`${v.id}_labels.json`, buildPayload(v));
+    });
+
+    // Export all videos as a single JSON array
+    container.querySelector('#btn-export-all').addEventListener('click', () => {
+        const all = videos.map(v => buildPayload(v));
+        download('all_labels.json', all);
     });
 
     return container;

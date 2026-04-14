@@ -11,7 +11,7 @@ from pathlib import Path
 
 VIDEO_DIR = Path(__file__).parent.parent / "data" / "raw_videos"
 OUT_PATH = Path(__file__).parent.parent / "app" / "videos.json"
-EXTENSIONS = {".mov", ".mp4", ".avi", ".webm"}
+EXTENSIONS = {".mov", ".mp4", ".avi", ".webm", ".MOV", ".MP4", ".AVI", ".WEBM"}
 
 def generate():
     if not VIDEO_DIR.exists():
