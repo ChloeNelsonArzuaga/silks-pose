@@ -168,9 +168,9 @@
     "labels": []
   },
   {
-    "id": "IMG_0250 (1)",
-    "filename": "IMG_0250 (1).MOV",
-    "path": "data/raw_videos/IMG_0250 (1).MOV",
+    "id": "IMG_0250",
+    "filename": "IMG_0250.MOV",
+    "path": "data/raw_videos/IMG_0250.MOV",
     "split": "unassigned",
     "tags": [],
     "labels": []

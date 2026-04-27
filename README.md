@@ -1,49 +1,116 @@
-# Silks Pose Project
+# Silks Pose
 
-This repository contains scripts and data for pose landmark extraction, filtering, preprocessing, and visualization in silk aerial videos using MediaPipe and OpenCV.
+Pose detection and classification pipeline for aerial silk performances.
+Uses MediaPipe to extract joint landmarks from video, labels moves via a web app, and trains a classifier to recognize poses.
 
-## File Summaries
+---
 
-### scripts/core_logic/
-Main workflow scripts:
-- **extract_landmarks.py**: Extracts pose landmarks from a video using MediaPipe's Pose Landmarker. Downloads the model if needed, processes each frame, and saves results to a JSON file.
-- **preprocess.py**: Preprocesses MediaPipe pose landmarks from JSON files. Computes body-frame positions, yaw, and yaw rate for each frame. Outputs are saved for downstream analysis and modeling.
-- **silk_process.py**: Unified postprocessing and filtering for silk occlusion. Computes silk masks, minimum distances, flags occluded landmarks, and outputs diagnostic overlays and masked landmark files.
-- **visualize.py**: Unified visualization script for pose landmarks and silk mask overlays. Supports occlusion-aware coloring and mask overlays.
+## Project Structure
 
-### scripts/utility_testing/
-Support, utility, and testing scripts:
-- **utils.py**: Shared utility functions for landmark loading, mask generation, and drawing.
-- **hsv_tuner.py**: Interactive tool for tuning HSV color thresholds for silk masking. Loads a video, allows frame selection, and lets you adjust HSV sliders. Saves settings to `hsv_settings.json`.
-- **test_env.py**: Checks that all required libraries (OpenCV, MediaPipe, Torch, NumPy) are installed and prints their versions. Use to verify your Python environment.
-### data/
-- **landmarks/**: Contains JSON files with extracted pose landmarks.
-- **raw_videos/**: Original input videos.
-- **processed/**: Processed video and landmark data.
-- **visualized/**: Output videos and images with visualized landmarks.
+```
+pipeline/           # Core processing steps (extract, preprocess, visualize)
+training/           # Dataset summary, batch extraction, model training
+utils/              # Dev server, manifest generator, label merge, HSV tuner
+app/                # Web labeling tool (served via utils/serve.py)
+data/
+  raw_videos/       # Input videos (gitignored)
+  landmarks/        # Raw MediaPipe landmark JSON per video (gitignored)
+  preprocessed/     # Body-frame normalized .npy arrays per video (gitignored)
+  exports/          # Exported label JSON from the web app (gitignored)
+  output/           # Annotated output videos and label clips (gitignored)
+models/             # MediaPipe model file (gitignored)
+config/             # HSV settings for silk color detection
+```
 
-### preprocessed/
-- Contains numpy arrays and summary files for normalized landmarks, visibility, yaw rates, and yaws.
+---
 
-### preprocessed_silk*, preprocessed_filtered/
-- Contains diagnostic files, masked landmarks, and silk occlusion data for further analysis and training.
+## Workflows
 
-### models/
-- Directory for model files and related assets.
+### 1. Label videos in the web app
 
-### notebooks/
-- Jupyter notebooks for exploration and analysis.
+Start the local server:
+```bash
+python3 utils/serve.py
+```
+Open `http://localhost:8000` in your browser. Use the **Admin** page to label pose ranges in each video, assign splits (Train / Test / Labeled), and add tags.
 
-## Usage
-See each script's header for usage instructions. Typical workflow:
-1. Extract landmarks from video (`core_logic/extract_landmarks.py`).
-2. Tune HSV mask for silk (`utility_testing/hsv_tuner.py`).
-3. Preprocess landmarks (`core_logic/preprocess.py`).
-4. Silk postprocessing/filtering (`core_logic/silk_process.py`).
-5. Visualize results (`core_logic/visualize.py`).
+Export labels from the browser, save to `data/exports/all_labels.json`, then merge into the manifest:
+```bash
+python3 utils/merge_labels.py data/exports/all_labels.json
+```
+
+### 2. Refresh the video manifest
+
+Run this after adding new videos to `data/raw_videos/`:
+```bash
+python3 utils/generate_manifest.py
+```
+
+### 3. Batch extract landmarks for all labeled videos
+
+Runs MediaPipe extraction + body-frame preprocessing on every video with split `labeled`, `train`, or `test`. Skips videos already processed.
+```bash
+python3 training/batch_extract.py
+```
+Options:
+- `--force` — reprocess even if outputs already exist
+- `--dry-run` — show what would run without executing
+
+### 4. Summarize labeled data
+
+Outputs `training/label_summary.csv` with move name, number of videos, number of frames, and video names. Useful for deciding which moves have enough data to train on.
+```bash
+python3 training/summarize_labels.py
+```
+
+### 5. Export annotated skeleton clips
+
+Exports a short annotated video clip for each labeled segment so you can visually verify the labels. Clips are saved to `data/output/label_clips/`.
+```bash
+python3 training/export_label_clips.py                  # cats cradle only (default)
+python3 training/export_label_clips.py --move "angel"   # any specific move
+python3 training/export_label_clips.py --all-moves      # every labeled segment
+```
+
+### 6. Train the classifier
+
+Trains a binary classifier (cats cradle vs. not) using a video-level 7/2 train/test split to avoid data leakage. Saves the model to `training/`.
+```bash
+python3 training/train.py
+python3 training/train.py --list-splits    # preview which videos are train vs. test
+python3 training/train.py --seed 1         # try a different video split
+```
+
+### 7. Run the pipeline on a single video
+
+Extracts landmarks, preprocesses, and generates an annotated visualization for one video.
+```bash
+python3 run.py data/raw_videos/myvideo.mp4 myvideo
+```
+Defaults to `data/raw_videos/test.mov` when run from the VS Code play button.
+
+---
+
+## Utilities
+
+| Script | Purpose |
+|---|---|
+| `utils/serve.py` | Local dev server with byte-range support (required for video scrubbing) |
+| `utils/generate_manifest.py` | Scan `data/raw_videos/` and update `app/videos.json` |
+| `utils/merge_labels.py` | Merge exported label JSON back into `app/videos.json` |
+| `utils/hsv_tuner.py` | Interactive HSV threshold tuner for silk color detection |
+| `utils/clean.py` | Delete generated output directories |
+
+---
 
 ## Requirements
-See `requirements.txt` for dependencies.
+
+```bash
+pip3 install mediapipe opencv-python numpy scipy scikit-learn joblib tqdm
+```
+
+---
 
 ## License
+
 [Specify your license here]

@@ -61,26 +61,26 @@ def main(video_path, output_prefix):
         "Preprocess landmarks (body frame, yaw, yaw rate)"
     )
 
-    # Step 3: Silk postprocessing and filtering
-    run_command(
-        ["python3", "pipeline/silk_process.py", str(landmarks_json), str(video_path), str(silk_dir), "--filter"],
-        "Postprocess and filter silk-occluded landmarks"
-    )
+    # Step 3: Silk postprocessing and filtering (disabled — silk masking not used for now)
+    # run_command(
+    #     ["python3", "pipeline/silk_process.py", str(landmarks_json), str(video_path), str(silk_dir), "--filter"],
+    #     "Postprocess and filter silk-occluded landmarks"
+    # )
 
-    # Step 4: Visualize unfiltered landmarks
+    # Step 4: Visualize landmarks
     unfiltered_vis = output_dir / "unfiltered"
     run_command(
-        ["python3", "pipeline/visualize.py", str(landmarks_json), str(video_path), str(unfiltered_vis), "--mask"],
-        "Generate unfiltered visualization (with silk mask overlay)"
+        ["python3", "pipeline/visualize.py", str(landmarks_json), str(video_path), str(unfiltered_vis)],
+        "Generate visualization"
     )
 
-    # Step 5: Visualize filtered landmarks
-    filtered_landmarks = silk_dir / "landmarks_masked.json"
-    filtered_vis = output_dir / "filtered"
-    run_command(
-        ["python3", "pipeline/visualize.py", str(filtered_landmarks), str(video_path), str(filtered_vis), "--mask", "--masked"],
-        "Generate filtered visualization (with occlusion-aware coloring)"
-    )
+    # Step 5: Visualize filtered landmarks (disabled — silk masking not used for now)
+    # filtered_landmarks = silk_dir / "landmarks_masked.json"
+    # filtered_vis = output_dir / "filtered"
+    # run_command(
+    #     ["python3", "pipeline/visualize.py", str(filtered_landmarks), str(video_path), str(filtered_vis), "--mask", "--masked"],
+    #     "Generate filtered visualization (with occlusion-aware coloring)"
+    # )
 
     print(f"\n{'='*60}")
     print("[COMPLETE] Full workflow finished!")
