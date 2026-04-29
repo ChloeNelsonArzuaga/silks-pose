@@ -103,6 +103,37 @@ Defaults to `data/raw_videos/test.mov` when run from the VS Code play button.
 
 ---
 
+## Data sources: local vs Supabase
+
+The web app auto-detects which source to read from:
+
+| Where you load it from | Source |
+|---|---|
+| `localhost` / `127.0.0.1` (the `utils/serve.py` dev server) | **Local** — reads `app/videos.json` and localStorage overlays |
+| Any other hostname (deployed) | **Supabase** — reads the `videos` table over the API |
+
+To force a mode for testing, append `?source=supabase` or `?source=local` to the URL once — the choice is remembered in localStorage. Clear it with `localStorage.removeItem('data_source')`.
+
+The Upload button always writes to Supabase (browsers can't write back to your local filesystem), so uploads from localhost still land in the live database.
+
+## Supabase setup
+
+The web app stores videos and metadata in Supabase. To set this up on a fresh project:
+
+1. **Apply the schema** — open the Supabase SQL editor and run [`supabase/schema.sql`](supabase/schema.sql). This creates the `videos` and `tag_vocabulary` tables with row-level security, plus the private `videos` storage bucket.
+2. **Confirm the `thumbnails` bucket exists** — create one (public) if it isn't there yet; the app already reads/writes thumbnails from it.
+3. **Sign up a user** in the running app (Login page) so RLS-protected inserts can attach to `auth.users`.
+4. **(Optional) Seed example videos** so the library isn't empty:
+    ```bash
+    export SUPABASE_URL=https://<your-project>.supabase.co
+    export SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
+    export SEED_USER_ID=<uuid-from-Auth-dashboard>
+    python3 utils/seed_supabase.py data/raw_videos/test.mov data/raw_videos/another.mp4
+    ```
+    The script uploads each video, extracts a thumbnail, and inserts a `videos` row owned by `SEED_USER_ID`. Service-role key is required to bypass RLS for the seed user.
+
+The Upload button in the navbar opens a modal that runs MediaPipe pose detection on the selected video in-browser before submit, so you can verify tracking quality before committing to the upload.
+
 ## Requirements
 
 ```bash

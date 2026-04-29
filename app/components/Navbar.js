@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase.js';
+import { openUploadModal } from './UploadModal.js';
 
 export function Navbar(session) {
     const nav = document.createElement('nav');
@@ -66,7 +67,6 @@ export function Navbar(session) {
                 ` : ''}
                 <button class="avatar-menu-signout" id="nav-signout">Sign out</button>
             </div>
-            <input type="file" id="nav-file-input" accept="video/*" hidden>
         </div>
     `;
 
@@ -90,25 +90,8 @@ export function Navbar(session) {
     document.addEventListener('click', () => { avatarMenu.hidden = true; });
     nav.querySelector('#nav-signout').addEventListener('click', () => supabase.auth.signOut());
 
-    // Upload from navbar
-    const uploadBtn = nav.querySelector('#nav-upload-btn');
-    const fileInput = nav.querySelector('#nav-file-input');
-    uploadBtn.addEventListener('click', () => fileInput.click());
-    fileInput.addEventListener('change', e => {
-        const file = e.target.files[0];
-        if (!file) return;
-        // Show a brief toast
-        const toast = document.createElement('div');
-        toast.className = 'upload-toast';
-        toast.textContent = `${file.name} selected — add to data/raw_videos/ and run the pipeline`;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.classList.add('toast-visible'), 10);
-        setTimeout(() => {
-            toast.classList.remove('toast-visible');
-            setTimeout(() => toast.remove(), 300);
-        }, 4000);
-        fileInput.value = '';
-    });
+    // Upload from navbar — open the modal; it handles file picking and the test video
+    nav.querySelector('#nav-upload-btn').addEventListener('click', () => openUploadModal());
 
     return nav;
 }

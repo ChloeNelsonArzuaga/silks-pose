@@ -1,4 +1,6 @@
 import { supabase } from '../../lib/supabase.js';
+import { fetchVideos, getSignedUrl, updateVideo } from '../../lib/videos.js';
+import { IS_LOCAL } from '../../lib/dataSource.js';
 
 export function Home() {
     const page = document.createElement('div');
@@ -107,13 +109,13 @@ export function Home() {
     const playerTitle = page.querySelector('#player-title');
     const playerTags = page.querySelector('#player-tags');
 
-    function openPlayer(v) {
+    async function openPlayer(v) {
         const name = v.customName || getPoses(v)[0] || v.filename.replace(/\.[^.]+$/, '');
         playerTitle.textContent = name;
-        playerVideo.src = v.path;
-        playerVideo.play();
-        const poses = getPoses(v);
-        playerTags.innerHTML = poses.map(t => `<span class="lib-tag">${t}</span>`).join('');
+        const url = await getSignedUrl(v.storage_path || v.path);
+        playerVideo.src = url || '';
+        if (url) playerVideo.play().catch(() => {});
+        playerTags.innerHTML = renderPills(getPoses(v), getTags(v));
         playerModalBg.classList.add('is-open');
     }
 
@@ -127,25 +129,24 @@ export function Home() {
     playerModalBg.addEventListener('click', e => { if (e.target === playerModalBg) closePlayer(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closePlayer(); });
 
-    fetch('app/videos.json')
-        .then(r => r.json())
-        .then(data => {
-            allVideos = data
-                .filter(v => SHOW_SPLITS.has(v.split || 'unassigned') || true) // show all for now
-                .map(v => ({
-                    ...v,
-                    labels: JSON.parse(localStorage.getItem(`labels_${v.id}`) || JSON.stringify(v.labels || [])),
-                    tags: JSON.parse(localStorage.getItem(`video_tags_${v.id}`) || JSON.stringify(v.tags || [])),
-                    split: localStorage.getItem(`video_split_${v.id}`) || v.split || 'unassigned',
-                    favorite: localStorage.getItem(`fav_${v.id}`) === '1',
-                    customName: localStorage.getItem(`name_${v.id}`) || null,
-                }));
+    async function loadAndRender() {
+        try {
+            allVideos = await fetchVideos();
             filteredVideos = allVideos;
+            if (!allVideos.length) {
+                grid.innerHTML = IS_LOCAL
+                    ? '<p class="lib-empty">No videos found — run utils/generate_manifest.py</p>'
+                    : '<p class="lib-empty">No videos yet — click Upload to add one.</p>';
+                return;
+            }
             renderPage();
-        })
-        .catch(() => {
-            grid.innerHTML = '<p class="lib-empty">No videos found — run generate_manifest.py</p>';
-        });
+        } catch (e) {
+            console.error('[home] fetch videos failed:', e);
+            grid.innerHTML = `<p class="lib-empty">Couldn't load videos: ${e.message}</p>`;
+        }
+    }
+    loadAndRender();
+    window.addEventListener('video-uploaded', loadAndRender);
 
     searchInput.addEventListener('input', () => {
         const q = searchInput.value.trim().toLowerCase();
@@ -282,9 +283,27 @@ export function Home() {
 
     function getPoses(video) {
         const seen = new Set();
-        return (video.labels || [])
-            .map(l => l.label && l.label.trim())
-            .filter(l => l && !seen.has(l.toLowerCase()) && seen.add(l.toLowerCase()));
+        const out = [];
+        const add = name => {
+            const trimmed = name && name.trim();
+            if (!trimmed) return;
+            const k = trimmed.toLowerCase();
+            if (seen.has(k)) return;
+            seen.add(k);
+            out.push(trimmed);
+        };
+        (video.poses || []).forEach(add);
+        (video.labels || []).forEach(l => add(l.label));
+        return out;
+    }
+    function getTags(video) {
+        return (video.tags || []).filter(Boolean);
+    }
+    function renderPills(poses, tags) {
+        return [
+            ...poses.map(t => `<span class="lib-tag">${t}</span>`),
+            ...tags.map(t => `<span class="lib-tag lib-tag-meta">${t}</span>`),
+        ].join('');
     }
 
     function renderPage() {
@@ -349,6 +368,7 @@ export function Home() {
                     const val = input.value.trim() || current;
                     v.customName = val;
                     localStorage.setItem(`name_${id}`, val);
+                    updateVideo(id, { custom_name: val });
                     const span = document.createElement('span');
                     span.className = 'lib-card-title';
                     span.dataset.id = id;
@@ -372,6 +392,7 @@ export function Home() {
                 if (!v) return;
                 v.favorite = !v.favorite;
                 localStorage.setItem(`fav_${id}`, v.favorite ? '1' : '0');
+                updateVideo(id, { favorite: v.favorite });
                 btn.classList.toggle('fav-active', v.favorite);
                 btn.querySelector('svg').setAttribute('fill', v.favorite ? 'currentColor' : 'none');
             });
@@ -392,6 +413,7 @@ export function Home() {
 
     function renderCard(v) {
         const poses = getPoses(v).slice(0, 3);
+        const tags = getTags(v).slice(0, 3);
         const name = getCardName(v);
         const isSelected = selectedIds.has(v.id);
         return `
@@ -414,7 +436,7 @@ export function Home() {
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="${v.favorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </button>
                     </div>
-                    <div class="lib-card-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
+                    <div class="lib-card-tags">${renderPills(poses, tags)}</div>
                 </div>
             </div>
         `;
@@ -422,14 +444,15 @@ export function Home() {
 
     function renderListRow(v) {
         const poses = getPoses(v).slice(0, 4);
+        const tags = getTags(v).slice(0, 4);
 
         return `
             <div class="lib-row">
                 <canvas class="lib-row-thumb" data-src="${v.path}" data-seek="${getThumbTime(v)}"></canvas>
                 <div class="lib-row-info">
-                    <div class="lib-row-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
+                    <div class="lib-row-tags">${renderPills(poses, tags)}</div>
                 </div>
-                <div class="lib-row-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
+                <div class="lib-row-tags">${renderPills(poses, tags)}</div>
                 <button class="fav-btn ${v.favorite ? 'fav-active' : ''}" data-id="${v.id}">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="${v.favorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 </button>
