@@ -31,7 +31,13 @@ export function Login() {
                 </div>
                 <div class="login-field">
                     <label class="login-label" for="login-password">Password</label>
-                    <input class="login-input" type="password" id="login-password" name="password" placeholder="••••••••" required autocomplete="current-password" minlength="6">
+                    <div class="login-pw-wrap">
+                        <input class="login-input" type="password" id="login-password" name="password" placeholder="••••••••" required autocomplete="current-password" minlength="6">
+                        <button type="button" class="login-pw-toggle" id="login-pw-toggle" aria-label="Show password">
+                            <svg id="pw-eye-show" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <svg id="pw-eye-hide" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="login-error" id="login-error" hidden></div>
                 <button class="login-submit" type="submit" id="login-submit">Sign in</button>
@@ -51,6 +57,14 @@ export function Login() {
     const errorEl = page.querySelector('#login-error');
     const confirmEl = page.querySelector('#login-confirm');
     const passwordInput = page.querySelector('#login-password');
+
+    const pwToggle = page.querySelector('#login-pw-toggle');
+    pwToggle.addEventListener('click', () => {
+        const visible = passwordInput.type === 'text';
+        passwordInput.type = visible ? 'password' : 'text';
+        page.querySelector('#pw-eye-show').hidden = !visible;
+        page.querySelector('#pw-eye-hide').hidden = visible;
+    });
 
     page.querySelectorAll('.login-tab').forEach(tab => {
         tab.addEventListener('click', () => {

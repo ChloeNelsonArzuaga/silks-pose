@@ -2371,6 +2371,27 @@ body {
     margin-bottom: 0.4rem;
 }
 
+.login-pw-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.login-pw-wrap .login-input {
+    padding-right: 2.5rem;
+}
+.login-pw-toggle {
+    position: absolute;
+    right: 0.65rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.login-pw-toggle:hover { color: var(--color-text); }
+
 .login-input {
     width: 100%;
     padding: 0.6rem 0.85rem;

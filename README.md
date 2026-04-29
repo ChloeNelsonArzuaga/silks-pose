@@ -1,21 +1,24 @@
 # Silks Pose
 
-Pose detection and classification pipeline for aerial silk performances.
-Uses MediaPipe to extract joint landmarks from video, labels moves via a web app, and trains a classifier to recognize poses.
+An end-to-end system for aerial silk performance analysis. Videos are labeled with pose names through a web app, processed through a MediaPipe landmark extraction pipeline, and used to train a move classifier. A full-stack library app lets performers upload, browse, and organize their training footage.
 
 ---
 
-## Project Structure
+## Architecture
 
 ```
-pipeline/           # Core processing steps (extract, preprocess, visualize)
-training/           # Dataset summary, batch extraction, model training
-utils/              # Dev server, manifest generator, label merge, HSV tuner
-app/                # Web labeling tool (served via utils/serve.py)
+pipeline/           # CV processing: extract landmarks, preprocess, visualize
+training/           # Batch extraction, classifier training, label summaries
+utils/              # Dev server, manifest tools, Supabase seeding, HSV tuner
+app/                # Web app (Vanilla JS, served via utils/serve.py or deployed)
+  components/       # Navbar, Router, page components, VideoLabeler, UploadModal
+  lib/              # Supabase client, data source detection, video helpers, group logic
+  assets/           # Bundled test video + thumbnail
+supabase/           # schema.sql — tables, RLS, storage bucket policies
 data/
   raw_videos/       # Input videos (gitignored)
-  landmarks/        # Raw MediaPipe landmark JSON per video (gitignored)
-  preprocessed/     # Body-frame normalized .npy arrays per video (gitignored)
+  landmarks/        # Raw MediaPipe landmark JSON (gitignored)
+  preprocessed/     # Body-frame normalized .npy arrays (gitignored)
   exports/          # Exported label JSON from the web app (gitignored)
   output/           # Annotated output videos and label clips (gitignored)
 models/             # MediaPipe model file (gitignored)
@@ -24,66 +27,82 @@ config/             # HSV settings for silk color detection
 
 ---
 
-## Workflows
+## Web App
 
-### 1. Label videos in the web app
-
-Start the local server:
+Start the local dev server (required for video scrubbing — handles byte-range requests):
 ```bash
 python3 utils/serve.py
 ```
-Open `http://localhost:8000` in your browser. Use the **Admin** page to label pose ranges in each video, assign splits (Train / Test / Labeled), and add tags.
+Open `http://localhost:8000`. Sign in, then explore:
 
-Export labels from the browser, save to `data/exports/all_labels.json`, then merge into the manifest:
+| Page | What it does |
+|---|---|
+| **Library** | Browse all videos. Search, filter, favorite, rename, move to collections. |
+| **Collections** | Auto-groups videos by shared tag. Create manual collections. |
+| **Progress** | Groups videos by labeled move. Shows counts per pose. |
+| **Favorites** | Starred videos, moves, and collections in one place. |
+| **Upload** | Live MediaPipe pose preview before commit. Choose from files or the bundled test clip. |
+| **Admin** | Pose Labeler — scrub video, set start/stop points, label pose ranges. |
+| **Dataset** | Assign train/test/labeled/unused splits across all videos. |
+
+### Local vs Supabase mode
+
+The app auto-detects which data source to use:
+
+| Where loaded | Source |
+|---|---|
+| `localhost` / `127.0.0.1` | **Local** — reads `app/videos.json` + localStorage overlays, plus any Supabase uploads |
+| Any deployed hostname | **Supabase** — reads the `videos` table only |
+
+Override with `?source=supabase` or `?source=local` — choice sticks in localStorage. Clear with `localStorage.removeItem('data_source')`.
+
+---
+
+## Pipeline Workflows
+
+### 1. Label videos
+Open the Admin page in the web app. Scrub to a pose, set Start/Stop points, type a name, click Label. Export labels and merge back into the manifest:
 ```bash
 python3 utils/merge_labels.py data/exports/all_labels.json
 ```
 
 ### 2. Refresh the video manifest
-
-Run this after adding new videos to `data/raw_videos/`:
+Run after adding videos to `data/raw_videos/`:
 ```bash
 python3 utils/generate_manifest.py
 ```
 
-### 3. Batch extract landmarks for all labeled videos
-
-Runs MediaPipe extraction + body-frame preprocessing on every video with split `labeled`, `train`, or `test`. Skips videos already processed.
+### 3. Batch extract landmarks
+Runs MediaPipe extraction + body-frame preprocessing on every labeled/train/test video. Skips already-processed.
 ```bash
 python3 training/batch_extract.py
+python3 training/batch_extract.py --force     # reprocess existing
+python3 training/batch_extract.py --dry-run   # preview only
 ```
-Options:
-- `--force` — reprocess even if outputs already exist
-- `--dry-run` — show what would run without executing
 
 ### 4. Summarize labeled data
-
-Outputs `training/label_summary.csv` with move name, number of videos, number of frames, and video names. Useful for deciding which moves have enough data to train on.
+Outputs `training/label_summary.csv` — move name × video count × frame count. Useful for deciding what has enough data to train on.
 ```bash
 python3 training/summarize_labels.py
 ```
 
 ### 5. Export annotated skeleton clips
-
-Exports a short annotated video clip for each labeled segment so you can visually verify the labels. Clips are saved to `data/output/label_clips/`.
+Exports short annotated clips per labeled segment for visual verification.
 ```bash
-python3 training/export_label_clips.py                  # cats cradle only (default)
-python3 training/export_label_clips.py --move "angel"   # any specific move
-python3 training/export_label_clips.py --all-moves      # every labeled segment
+python3 training/export_label_clips.py                  # cats cradle (default)
+python3 training/export_label_clips.py --move "angel"
+python3 training/export_label_clips.py --all-moves
 ```
 
 ### 6. Train the classifier
-
-Trains a binary classifier (cats cradle vs. not) using a video-level 7/2 train/test split to avoid data leakage. Saves the model to `training/`.
+Binary classifier (cats cradle vs. not) with a video-level 7/2 train/test split to avoid temporal leakage.
 ```bash
 python3 training/train.py
-python3 training/train.py --list-splits    # preview which videos are train vs. test
-python3 training/train.py --seed 1         # try a different video split
+python3 training/train.py --list-splits    # preview split assignments
+python3 training/train.py --seed 1         # try a different split
 ```
 
 ### 7. Run the pipeline on a single video
-
-Extracts landmarks, preprocesses, and generates an annotated visualization for one video.
 ```bash
 python3 run.py data/raw_videos/myvideo.mp4 myvideo
 ```
@@ -91,48 +110,44 @@ Defaults to `data/raw_videos/test.mov` when run from the VS Code play button.
 
 ---
 
+## Supabase Setup
+
+The deployed app stores everything in Supabase. Run once on a new project:
+
+1. **Apply the schema** — Supabase SQL Editor → paste and run [`supabase/schema.sql`](supabase/schema.sql). Creates `videos` + `tag_vocabulary` tables with RLS, plus the private `videos` and public `thumbnails` storage buckets.
+
+2. **Sign up** — create a user via the app's Login page (or Supabase Auth dashboard).
+
+3. **Seed metadata** — populates the library with all locally-labeled videos (thumbnails + pose/tag data, no video file upload):
+    ```bash
+    export SUPABASE_URL=https://<project>.supabase.co
+    export SUPABASE_SERVICE_ROLE_KEY=<service-role-key>   # never commit this
+    export SEED_USER_ID=<uuid-from-Auth-dashboard>
+    python3 utils/seed_metadata.py
+    python3 utils/seed_metadata.py --labeled-only          # only videos with labels/tags
+    python3 utils/seed_metadata.py --dry-run --limit 5     # preview first
+    ```
+
+4. **Seed a full video** (optional — for the upload flow demo):
+    ```bash
+    python3 utils/seed_supabase.py data/raw_videos/IMG_0237_compressed.mp4
+    ```
+
+---
+
 ## Utilities
 
 | Script | Purpose |
 |---|---|
-| `utils/serve.py` | Local dev server with byte-range support (required for video scrubbing) |
-| `utils/generate_manifest.py` | Scan `data/raw_videos/` and update `app/videos.json` |
-| `utils/merge_labels.py` | Merge exported label JSON back into `app/videos.json` |
+| `utils/serve.py` | Local dev server with byte-range support |
+| `utils/generate_manifest.py` | Scan `data/raw_videos/` → `app/videos.json` |
+| `utils/merge_labels.py` | Merge exported labels back into `app/videos.json` |
+| `utils/seed_metadata.py` | Seed Supabase with thumbnails + metadata for all local videos |
+| `utils/seed_supabase.py` | Seed Supabase with full video files + metadata |
 | `utils/hsv_tuner.py` | Interactive HSV threshold tuner for silk color detection |
 | `utils/clean.py` | Delete generated output directories |
 
 ---
-
-## Data sources: local vs Supabase
-
-The web app auto-detects which source to read from:
-
-| Where you load it from | Source |
-|---|---|
-| `localhost` / `127.0.0.1` (the `utils/serve.py` dev server) | **Local** — reads `app/videos.json` and localStorage overlays |
-| Any other hostname (deployed) | **Supabase** — reads the `videos` table over the API |
-
-To force a mode for testing, append `?source=supabase` or `?source=local` to the URL once — the choice is remembered in localStorage. Clear it with `localStorage.removeItem('data_source')`.
-
-The Upload button always writes to Supabase (browsers can't write back to your local filesystem), so uploads from localhost still land in the live database.
-
-## Supabase setup
-
-The web app stores videos and metadata in Supabase. To set this up on a fresh project:
-
-1. **Apply the schema** — open the Supabase SQL editor and run [`supabase/schema.sql`](supabase/schema.sql). This creates the `videos` and `tag_vocabulary` tables with row-level security, plus the private `videos` storage bucket.
-2. **Confirm the `thumbnails` bucket exists** — create one (public) if it isn't there yet; the app already reads/writes thumbnails from it.
-3. **Sign up a user** in the running app (Login page) so RLS-protected inserts can attach to `auth.users`.
-4. **(Optional) Seed example videos** so the library isn't empty:
-    ```bash
-    export SUPABASE_URL=https://<your-project>.supabase.co
-    export SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
-    export SEED_USER_ID=<uuid-from-Auth-dashboard>
-    python3 utils/seed_supabase.py data/raw_videos/test.mov data/raw_videos/another.mp4
-    ```
-    The script uploads each video, extracts a thumbnail, and inserts a `videos` row owned by `SEED_USER_ID`. Service-role key is required to bypass RLS for the seed user.
-
-The Upload button in the navbar opens a modal that runs MediaPipe pose detection on the selected video in-browser before submit, so you can verify tracking quality before committing to the upload.
 
 ## Requirements
 

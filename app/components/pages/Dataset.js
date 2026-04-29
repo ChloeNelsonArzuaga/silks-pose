@@ -16,7 +16,6 @@ export function Dataset() {
             </div>
             <div class="dataset-toolbar-right">
                 <div class="dataset-stats" id="dataset-stats"></div>
-                <button class="btn btn-secondary btn-sm" id="btn-thumbnails">Thumbnails: Off</button>
             </div>
         </div>
         <div class="dataset-grid" id="dataset-grid">
@@ -26,19 +25,9 @@ export function Dataset() {
 
     let videos = [];
     let activeFilter = 'all';
-    let thumbnailsOn = false;
 
     const grid = page.querySelector('#dataset-grid');
     const statsEl = page.querySelector('#dataset-stats');
-    const thumbBtn = page.querySelector('#btn-thumbnails');
-
-    // Thumbnail toggle
-    thumbBtn.addEventListener('click', () => {
-        thumbnailsOn = !thumbnailsOn;
-        thumbBtn.textContent = `Thumbnails: ${thumbnailsOn ? 'On' : 'Off'}`;
-        thumbBtn.classList.toggle('filter-active', thumbnailsOn);
-        renderGrid();
-    });
 
     // Load manifest
     fetch('app/videos.json')
@@ -88,7 +77,6 @@ export function Dataset() {
 
         grid.innerHTML = filtered.map(v => `
             <div class="dataset-card" data-id="${v.id}">
-                ${thumbnailsOn ? `<div class="dataset-thumb-wrap"><canvas class="dataset-thumb" data-src="${v.path}"></canvas></div>` : ''}
                 <div class="dataset-card-name">${v.filename}</div>
                 <div class="dataset-card-meta">
                     <span class="label-count">${v.labels.length} label${v.labels.length !== 1 ? 's' : ''}</span>
@@ -119,31 +107,6 @@ export function Dataset() {
             });
         });
 
-        // Generate thumbnails
-        if (thumbnailsOn) {
-            grid.querySelectorAll('canvas.dataset-thumb').forEach(canvas => {
-                captureMidframe(canvas, canvas.dataset.src);
-            });
-        }
-    }
-
-    function captureMidframe(canvas, src) {
-        const vid = document.createElement('video');
-        vid.src = src;
-        vid.crossOrigin = 'anonymous';
-        vid.muted = true;
-        vid.preload = 'metadata';
-
-        vid.addEventListener('loadedmetadata', () => {
-            vid.currentTime = vid.duration / 2;
-        });
-
-        vid.addEventListener('seeked', () => {
-            canvas.width = vid.videoWidth;
-            canvas.height = vid.videoHeight;
-            canvas.getContext('2d').drawImage(vid, 0, 0);
-            vid.src = ''; // free memory
-        });
     }
 
     return page;

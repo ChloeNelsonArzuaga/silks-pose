@@ -1,11 +1,9 @@
 import { IS_LOCAL } from '../lib/dataSource.js';
-import { supabase } from '../lib/supabase.js';
-import { getSignedUrl } from '../lib/videos.js';
 
 const TEST_FILENAME = 'IMG_0237_compressed.mp4';
 const TEST_LABELS = [
-    { videoId: null, startTime: 75.211, endTime: 92.214, startFrame: 2256, endFrame: 2766, label: 'cats cradle' },
-    { videoId: null, startTime: 96.335, endTime: 104.835, startFrame: 2890, endFrame: 3145, label: 'cats cradle end' },
+    { videoId: null, startTime: 48.733, endTime: 60.333, startFrame: 1462, endFrame: 1810, label: 'cats cradle' },
+    { videoId: null, startTime: 64.367, endTime: 71.667, startFrame: 1931, endFrame: 2150, label: 'cats cradle end' },
 ];
 
 export function VideoLabeler() {
@@ -42,9 +40,9 @@ export function VideoLabeler() {
                     <button type="button" class="btn btn-secondary btn-sm" id="btn-fwd-5">+5s</button>
                 </div>
                 <div class="labeler-range">
-                    <button type="button" class="btn btn-secondary btn-sm" id="btn-mark-in">Set In</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-mark-in">Start</button>
                     <span class="range-display" id="range-display">No range set</span>
-                    <button type="button" class="btn btn-secondary btn-sm" id="btn-mark-out">Set Out</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-mark-out">Stop</button>
                     <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-range">Clear</button>
                 </div>
                 <div class="labeler-input">
@@ -113,38 +111,24 @@ export function VideoLabeler() {
                 select.innerHTML = '<option>No videos found — run generate_manifest.py</option>';
             });
     } else {
-        (async () => {
-            const { data: rows } = await supabase
-                .from('videos')
-                .select('id, filename, storage_path, thumbnail_path')
-                .eq('filename', TEST_FILENAME)
-                .limit(1);
-            if (!rows || !rows.length) {
-                select.innerHTML = `<option>Upload ${TEST_FILENAME} first</option>`;
-                return;
-            }
-            const row = rows[0];
-            const signedUrl = await getSignedUrl(row.storage_path);
-            const v = {
-                id: row.id,
-                filename: row.filename,
-                path: signedUrl || '',
-                split: 'labeled',
-                tags: [],
-                labels: [],
-            };
-            // Seed labels into localStorage if not already set
-            if (!localStorage.getItem(`labels_${v.id}`)) {
-                const seeded = TEST_LABELS.map(l => ({ ...l, videoId: v.id }));
-                localStorage.setItem(`labels_${v.id}`, JSON.stringify(seeded));
-            }
-            if (!localStorage.getItem(`video_split_${v.id}`)) {
-                localStorage.setItem(`video_split_${v.id}`, 'labeled');
-            }
-            videos = [v];
-            populateSelect();
-            loadVideo(v);
-        })();
+        const TEST_ID = 'test-video-demo';
+        const v = {
+            id: TEST_ID,
+            filename: TEST_FILENAME,
+            path: 'app/assets/test_video.mp4',
+            split: 'labeled',
+            tags: [],
+            labels: [],
+        };
+        // Always re-seed so stale timestamps from a previous version get replaced
+        const seeded = TEST_LABELS.map(l => ({ ...l, videoId: TEST_ID }));
+        localStorage.setItem(`labels_${TEST_ID}`, JSON.stringify(seeded));
+        if (!localStorage.getItem(`video_split_${TEST_ID}`)) {
+            localStorage.setItem(`video_split_${TEST_ID}`, 'labeled');
+        }
+        videos = [v];
+        populateSelect();
+        setTimeout(() => loadVideo(v), 0);
     }
 
     select.addEventListener('change', () => {

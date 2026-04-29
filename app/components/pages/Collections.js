@@ -271,7 +271,7 @@ export function Collections() {
         if (viewMode === 'list') {
             grid.innerHTML = filtered.map(c => renderRow(c)).join('');
         } else {
-            grid.innerHTML = filtered.map(c => renderCard(c)).join('') + renderNewCard();
+            grid.innerHTML = filtered.map(c => renderCard(c)).join('');
         }
         bindMainGridEvents();
     }
@@ -336,7 +336,7 @@ export function Collections() {
     }
 
     function bindMainGridEvents() {
-        page.querySelector('#coll-new-inline')?.addEventListener('click', openModal);
+        window.addEventListener('new-collection', openModal);
 
         grid.querySelectorAll('.coll-card-menu').forEach(btn => {
             btn.addEventListener('click', e => {

@@ -42,7 +42,7 @@ export function Navbar(session) {
                     <line x1="12" y1="5" x2="12" y2="19"/>
                     <line x1="5" y1="12" x2="19" y2="12"/>
                 </svg>
-                Upload
+                <span id="nav-upload-label">Upload</span>
             </button>
             <div class="avatar-circle" id="nav-avatar" title="${session?.user?.email || ''}">${(session?.user?.email?.[0] ?? 'S').toUpperCase()}</div>
             <div class="avatar-menu" id="avatar-menu" hidden>
@@ -84,8 +84,26 @@ export function Navbar(session) {
     document.addEventListener('click', () => { avatarMenu.hidden = true; });
     nav.querySelector('#nav-signout').addEventListener('click', () => supabase.auth.signOut());
 
-    // Upload from navbar — open the modal; it handles file picking and the test video
-    nav.querySelector('#nav-upload-btn').addEventListener('click', () => openUploadModal());
+    const uploadBtn = nav.querySelector('#nav-upload-btn');
+    const uploadLabel = nav.querySelector('#nav-upload-label');
+
+    function updateUploadBtn() {
+        const hash = window.location.hash;
+        const onCollections = hash === '#/collections';
+        const hidden = hash === '#/favorites' || hash === '#/progress';
+        uploadLabel.textContent = onCollections ? 'New Collection' : 'Upload';
+        uploadBtn.style.display = hidden ? 'none' : '';
+    }
+    updateUploadBtn();
+    window.addEventListener('hashchange', updateUploadBtn);
+
+    uploadBtn.addEventListener('click', () => {
+        if (window.location.hash === '#/collections') {
+            window.dispatchEvent(new CustomEvent('new-collection'));
+        } else {
+            openUploadModal();
+        }
+    });
 
     return nav;
 }

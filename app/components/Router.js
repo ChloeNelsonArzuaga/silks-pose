@@ -13,7 +13,12 @@ export function Router(routes, container) {
         const path = getPath();
         const page = routes[path] || routes['/'];
         container.innerHTML = '';
-        container.appendChild(page());
+        try {
+            container.appendChild(page());
+        } catch (e) {
+            console.error('[router] error rendering', path, e);
+            container.innerHTML = `<div style="padding:2rem;color:#c00;font-family:monospace;white-space:pre-wrap"><b>Page error (${path})</b>\n${e.stack || e.message}</div>`;
+        }
     }
 
     function navigate(path) {
