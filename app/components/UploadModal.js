@@ -59,7 +59,7 @@ export function openUploadModal(initialFile) {
             <div class="upm-preview" id="upm-preview" hidden>
                 <div class="upload-modal-body">
                     <div class="upm-preview-wrap">
-                        <video class="upm-video" id="upm-video" controls playsinline muted></video>
+                        <video class="upm-video" id="upm-video" controls playsinline muted autoplay></video>
                         <canvas class="upm-overlay" id="upm-overlay"></canvas>
                     </div>
                     <div class="upm-form">
@@ -69,9 +69,7 @@ export function openUploadModal(initialFile) {
                         </label>
                         <div class="upm-field">
                             <span>Detected Poses</span>
-                            <div class="upm-detected">
-                                <span class="upm-detected-tag">cats cradle</span>
-                            </div>
+                            <div class="upm-detected" id="upm-detected"></div>
                         </div>
                         <label class="upm-field">
                             <span>Add Poses <em>(comma-separated)</em></span>
@@ -110,12 +108,16 @@ export function openUploadModal(initialFile) {
         presetThumbnailUrl = opts.thumbnailUrl || null;
         fileURL = URL.createObjectURL(file);
         video.src = fileURL;
+        video.play().catch(() => {});
         chooser.hidden = true;
         previewSection.hidden = false;
         if (file.name) {
             const stem = file.name.replace(/\.[^.]+$/, '').replace(/[_-]/g, ' ');
             overlay.querySelector('#upm-name').value = stem;
         }
+        overlay.querySelector('#upm-detected').innerHTML = opts.isTestVideo
+            ? `<span class="upm-detected-tag">cats cradle</span>`
+            : '';
     }
 
     overlay.querySelector('#upm-pick-file').onclick = () => fileInput.click();
@@ -130,7 +132,7 @@ export function openUploadModal(initialFile) {
             if (!res.ok) throw new Error(`fetch ${res.status}`);
             const blob = await res.blob();
             const file = new File([blob], TEST_VIDEO_NAME, { type: blob.type || 'video/mp4' });
-            startPreview(file, { thumbnailUrl: TEST_VIDEO_THUMB_URL });
+            startPreview(file, { thumbnailUrl: TEST_VIDEO_THUMB_URL, isTestVideo: true });
         } catch (e) {
             console.error('[upload] test video load failed:', e);
             alert('Could not load test video: ' + e.message);
@@ -287,7 +289,7 @@ export function openUploadModal(initialFile) {
                     return true;
                 });
             };
-            const detected = Array.from(overlay.querySelectorAll('.upm-detected-tag'))
+            const detected = Array.from(overlay.querySelectorAll('#upm-detected .upm-detected-tag'))
                 .map(el => el.textContent.trim()).filter(Boolean);
             const userPoses = overlay.querySelector('#upm-poses').value
                 .split(',').map(t => t.trim()).filter(Boolean);

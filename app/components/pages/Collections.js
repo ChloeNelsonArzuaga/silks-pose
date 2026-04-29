@@ -279,7 +279,7 @@ export function Collections() {
     function renderCard(c) {
         const tags = (c.tags || []).slice(0, 2);
         const count = (c.videoIds || []).length;
-        const stackHtml = c.auto ? renderThumbStack(c) : '';
+        const stackHtml = (c.videoIds && c.videoIds.length) ? renderThumbStack(c) : '';
         const menuHtml = c.auto ? '' : `
             <div class="coll-card-menu-wrap">
                 <button class="coll-card-menu" data-id="${c.id}" title="Options">

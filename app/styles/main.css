@@ -390,6 +390,20 @@ body {
     color: var(--color-primary);
 }
 
+.lib-card-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 0;
+    line-height: 0;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+}
+.lib-card:hover .lib-card-delete-btn { opacity: 1; }
+.lib-card-delete-btn:hover { color: #dc2626; }
+
 .lib-card-title-input {
     font-size: 0.875rem;
     font-weight: 600;
@@ -460,9 +474,31 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    padding: 0.85rem 1.25rem;
+    padding: 0.85rem 1.25rem 0.6rem;
     border-top: 1px solid var(--color-border);
-    min-height: 48px;
+    min-height: 40px;
+}
+
+.player-label-row {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem 1rem;
+}
+
+.player-label-input {
+    flex: 1;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.7rem;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    outline: none;
+}
+.player-label-input:focus {
+    border-color: #5c4ec9;
+    box-shadow: 0 0 0 3px rgba(92,78,201,0.12);
 }
 
 /* Select button */
@@ -658,7 +694,8 @@ body {
     border-radius: 999px;
 }
 
-.coll-card-auto .coll-card-thumb {
+.coll-card-auto .coll-card-thumb,
+.coll-card .coll-card-thumb {
     position: relative;
 }
 
@@ -718,6 +755,7 @@ body {
 
 .coll-card-stack {
     inset: 0;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ece8fa 100%);
 }
 
 /* ============================================================

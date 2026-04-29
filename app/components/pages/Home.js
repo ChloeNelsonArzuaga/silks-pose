@@ -55,6 +55,10 @@ export function Home() {
                 </div>
                 <video class="player-video" id="player-video" controls playsinline></video>
                 <div class="player-tags" id="player-tags"></div>
+                <div class="player-label-row">
+                    <input class="player-label-input" type="text" id="player-label-input" placeholder="Add a pose label…">
+                    <button class="btn btn-primary btn-sm" id="player-label-btn">Add</button>
+                </div>
             </div>
         </div>
 
@@ -108,21 +112,49 @@ export function Home() {
     const playerVideo = page.querySelector('#player-video');
     const playerTitle = page.querySelector('#player-title');
     const playerTags = page.querySelector('#player-tags');
+    const playerLabelInput = page.querySelector('#player-label-input');
+    const playerLabelBtn = page.querySelector('#player-label-btn');
+
+    let currentPlayerVideo = null;
 
     async function openPlayer(v) {
+        currentPlayerVideo = v;
         const name = v.customName || getPoses(v)[0] || v.filename.replace(/\.[^.]+$/, '');
         playerTitle.textContent = name;
         const url = await getSignedUrl(v.storage_path || v.path);
         playerVideo.src = url || '';
         if (url) playerVideo.play().catch(() => {});
         playerTags.innerHTML = renderPills(getPoses(v), getTags(v));
+        playerLabelInput.value = '';
         playerModalBg.classList.add('is-open');
     }
+
+    async function addPlayerLabel() {
+        const text = playerLabelInput.value.trim();
+        if (!text || !currentPlayerVideo) return;
+        const v = currentPlayerVideo;
+        if (!(v.poses || []).map(p => p.toLowerCase()).includes(text.toLowerCase())) {
+            v.poses = [...(v.poses || []), text];
+            playerTags.innerHTML = renderPills(getPoses(v), getTags(v));
+            updateVideo(v.id, { poses: v.poses });
+        }
+        playerLabelInput.value = '';
+        // Refresh the card in the grid
+        const card = grid.querySelector(`.lib-card[data-id="${v.id}"]`);
+        if (card) {
+            const posePills = card.querySelector('.lib-card-tags');
+            if (posePills) posePills.innerHTML = renderPills(getPoses(v).slice(0, 3), getTags(v).slice(0, 3));
+        }
+    }
+
+    playerLabelBtn.addEventListener('click', addPlayerLabel);
+    playerLabelInput.addEventListener('keydown', e => { if (e.key === 'Enter') addPlayerLabel(); });
 
     function closePlayer() {
         playerModalBg.classList.remove('is-open');
         playerVideo.pause();
         playerVideo.src = '';
+        currentPlayerVideo = null;
     }
 
     page.querySelector('#player-close').addEventListener('click', closePlayer);
@@ -327,10 +359,30 @@ export function Home() {
             grid.innerHTML = pageVideos.map(v => renderCard(v)).join('');
         }
 
+        // Delete buttons
+        grid.querySelectorAll('.lib-card-delete-btn').forEach(btn => {
+            btn.addEventListener('click', async e => {
+                e.stopPropagation();
+                const id = btn.dataset.id;
+                const v = allVideos.find(v => v.id === id);
+                if (!v) return;
+                const name = getCardName(v) || v.filename;
+                if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
+                if (!IS_LOCAL) {
+                    if (v.storage_path) await supabase.storage.from('videos').remove([v.storage_path]);
+                    if (v.thumbnail_path) await supabase.storage.from('thumbnails').remove([v.thumbnail_path]);
+                    await supabase.from('videos').delete().eq('id', id);
+                }
+                allVideos = allVideos.filter(x => x.id !== id);
+                filteredVideos = filteredVideos.filter(x => x.id !== id);
+                renderPage();
+            });
+        });
+
         // Card clicks
         grid.querySelectorAll('.lib-card').forEach(card => {
             card.addEventListener('click', e => {
-                if (e.target.closest('.fav-btn') || e.target.closest('.lib-card-edit-btn')) return;
+                if (e.target.closest('.fav-btn') || e.target.closest('.lib-card-edit-btn') || e.target.closest('.lib-card-delete-btn')) return;
                 const id = card.dataset.id;
                 if (selectMode) {
                     if (selectedIds.has(id)) selectedIds.delete(id);
@@ -430,6 +482,9 @@ export function Home() {
                             <span class="lib-card-title" data-id="${v.id}">${name}</span>
                             <button class="lib-card-edit-btn" data-id="${v.id}" title="Rename">
                                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </button>
+                            <button class="lib-card-delete-btn" data-id="${v.id}" title="Delete">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
                             </button>
                         </div>
                         <button class="fav-btn ${v.favorite ? 'fav-active' : ''}" data-id="${v.id}" title="Favorite">
