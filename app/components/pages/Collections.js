@@ -1,4 +1,6 @@
 import { supabase } from '../../lib/supabase.js';
+import { fetchVideos } from '../../lib/videos.js';
+import { buildTagCollections, setAutoCollFav } from '../../lib/groups.js';
 
 const SMART = [
     { key: 'recent', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>', label: 'Recently Added' },
@@ -204,27 +206,46 @@ export function Collections() {
     }
 
     // ─── Load data ───
-    fetch('app/videos.json').then(r => r.json()).then(data => {
-        allVideos = data.map(v => ({
-            ...v,
-            labels: JSON.parse(localStorage.getItem(`labels_${v.id}`) || JSON.stringify(v.labels || [])),
-        }));
+    fetchVideos().then(data => {
+        allVideos = data;
         page.querySelector('#stat-videos').textContent = allVideos.length;
-        const favCount = allVideos.filter(v => localStorage.getItem(`fav_${v.id}`) === '1').length;
+        const favCount = allVideos.filter(v => v.favorite).length;
         page.querySelector('#stat-favorites').textContent = favCount;
         page.querySelector('#stat-hours').textContent = (allVideos.length / 60).toFixed(1);
         renderSmart();
-    }).catch(() => {});
+        loadCollections();
+    }).catch(e => {
+        console.error('[collections] fetch failed:', e);
+    });
+
+    function renderThumbStack(c) {
+        const ids = (c.videoIds || []).slice(0, 3);
+        const imgs = ids.map((vid, i) => {
+            const v = allVideos.find(x => x.id === vid);
+            const thumbId = v?.thumbnail_path || `${vid}.jpg`;
+            const { data } = supabase.storage.from('thumbnails').getPublicUrl(thumbId);
+            return `<img class="prog-stack-img prog-stack-img-${i}" src="${data.publicUrl}" alt="" onerror="this.style.opacity='0'">`;
+        }).join('');
+        return `<div class="prog-stack coll-card-stack">${imgs}</div>`;
+    }
+
+    function buildAutoCollections() {
+        return buildTagCollections(allVideos).map(c => ({ ...c, createdAt: 0 }));
+    }
 
     // ─── Collections CRUD ───
     function loadCollections() {
-        allCollections = JSON.parse(localStorage.getItem('collections') || '[]');
+        const manual = JSON.parse(localStorage.getItem('collections') || '[]');
+        const auto = buildAutoCollections();
+        allCollections = [...auto, ...manual];
         page.querySelector('#stat-collections').textContent = allCollections.length;
         applyFilter();
     }
 
     function saveCollections() {
-        localStorage.setItem('collections', JSON.stringify(allCollections));
+        // Only manual collections persist. Auto ones are recomputed from videos every load.
+        const manual = allCollections.filter(c => !c.auto);
+        localStorage.setItem('collections', JSON.stringify(manual));
         page.querySelector('#stat-collections').textContent = allCollections.length;
     }
 
@@ -258,21 +279,25 @@ export function Collections() {
     function renderCard(c) {
         const tags = (c.tags || []).slice(0, 2);
         const count = (c.videoIds || []).length;
+        const stackHtml = c.auto ? renderThumbStack(c) : '';
+        const menuHtml = c.auto ? '' : `
+            <div class="coll-card-menu-wrap">
+                <button class="coll-card-menu" data-id="${c.id}" title="Options">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+                <div class="coll-card-dropdown" data-menu="${c.id}" style="display:none">
+                    <button class="coll-card-dropdown-item coll-card-delete" data-id="${c.id}">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                        Delete
+                    </button>
+                </div>
+            </div>`;
         return `
-            <div class="coll-card" data-id="${c.id}">
+            <div class="coll-card ${c.auto ? 'coll-card-auto' : ''}" data-id="${c.id}">
                 <div class="coll-card-thumb">
+                    ${stackHtml}
                     <span class="coll-card-count">${count} video${count !== 1 ? 's' : ''}</span>
-                    <div class="coll-card-menu-wrap">
-                        <button class="coll-card-menu" data-id="${c.id}" title="Options">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
-                        </button>
-                        <div class="coll-card-dropdown" data-menu="${c.id}" style="display:none">
-                            <button class="coll-card-dropdown-item coll-card-delete" data-id="${c.id}">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-                                Delete
-                            </button>
-                        </div>
-                    </div>
+                    ${menuHtml}
                 </div>
                 <div class="coll-card-body">
                     <div class="coll-card-name">${c.name}</div>
@@ -337,6 +362,7 @@ export function Collections() {
                 const c = allCollections.find(c => c.id === btn.dataset.id);
                 if (!c) return;
                 c.favorite = !c.favorite;
+                if (c.auto) setAutoCollFav(c.id, c.favorite);
                 saveCollections();
                 btn.classList.toggle('fav-active', c.favorite);
                 btn.querySelector('svg').setAttribute('fill', c.favorite ? 'currentColor' : 'none');
@@ -369,6 +395,8 @@ export function Collections() {
         currentCollId = c.id;
         page.querySelector('#coll-detail-title').textContent = c.name;
         page.querySelector('#coll-detail-desc').textContent = c.description || `${(c.videoIds || []).length} videos`;
+        const addBtn = page.querySelector('#coll-add-videos-btn');
+        if (addBtn) addBtn.style.display = c.auto ? 'none' : '';
         const videos = allVideos.filter(v => (c.videoIds || []).includes(v.id));
         if (videos.length === 0) {
             detailGrid.innerHTML = '<p class="lib-empty">No videos in this collection yet. Click "Add Videos" to get started.</p>';

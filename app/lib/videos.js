@@ -5,13 +5,32 @@ const SIGNED_URL_TTL = 60 * 60; // 1 hour
 const urlCache = new Map(); // storage_path -> { url, exp }
 
 export async function fetchVideos() {
-    if (!IS_LOCAL) return fetchSupabase();
+    if (!IS_LOCAL) return sortLabeledFirst(await fetchSupabase());
     // Local mode: bundled videos.json + anything the user has uploaded to Supabase.
     const [local, remote] = await Promise.all([
         fetchLocal().catch(e => { console.warn('[videos] local fetch failed:', e); return []; }),
         fetchSupabase().catch(e => { console.warn('[videos] supabase fetch failed (auth required):', e.message); return []; }),
     ]);
-    return [...remote, ...local];
+    return sortLabeledFirst([...remote, ...local]);
+}
+
+function sortLabeledFirst(videos) {
+    // Tier 0: has poses or legacy labels (real moves identified)
+    // Tier 1: has tags only
+    // Tier 2: nothing
+    const tier = v => {
+        if ((v.poses?.length || 0) + (v.labels?.length || 0) > 0) return 0;
+        if ((v.tags?.length || 0) > 0) return 1;
+        return 2;
+    };
+    return [...videos].sort((a, b) => {
+        const ta = tier(a), tb = tier(b);
+        if (ta !== tb) return ta - tb;
+        // Within the same tier: newest first.
+        const da = a.created_at ? Date.parse(a.created_at) : 0;
+        const db = b.created_at ? Date.parse(b.created_at) : 0;
+        return db - da;
+    });
 }
 
 export async function getSignedUrl(pathOrStoragePath) {

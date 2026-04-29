@@ -1,8 +1,13 @@
-/**
- * Video labeling widget.
- * Loads videos from videos.json manifest, lets user scrub through
- * and label a single frame or a range of frames with a pose name.
- */
+import { IS_LOCAL } from '../lib/dataSource.js';
+import { supabase } from '../lib/supabase.js';
+import { getSignedUrl } from '../lib/videos.js';
+
+const TEST_FILENAME = 'IMG_0237_compressed.mp4';
+const TEST_LABELS = [
+    { videoId: null, startTime: 75.211, endTime: 92.214, startFrame: 2256, endFrame: 2766, label: 'cats cradle' },
+    { videoId: null, startTime: 96.335, endTime: 104.835, startFrame: 2890, endFrame: 3145, label: 'cats cradle end' },
+];
+
 export function VideoLabeler() {
     const container = document.createElement('div');
     container.className = 'labeler';
@@ -94,18 +99,53 @@ export function VideoLabeler() {
     const labelsList = container.querySelector('#labels-list');
     const rangeDisplay = container.querySelector('#range-display');
 
-    // Load manifest
-    fetch('app/videos.json')
-        .then(r => r.json())
-        .then(data => {
-            videos = data;
+    // Load manifest — local mode reads videos.json, Supabase mode loads the test video
+    if (IS_LOCAL) {
+        fetch('app/videos.json', { cache: 'no-store' })
+            .then(r => r.json())
+            .then(data => {
+                videos = data;
+                populateSelect();
+                const first = visibleVideos()[0];
+                if (first) loadVideo(first);
+            })
+            .catch(() => {
+                select.innerHTML = '<option>No videos found — run generate_manifest.py</option>';
+            });
+    } else {
+        (async () => {
+            const { data: rows } = await supabase
+                .from('videos')
+                .select('id, filename, storage_path, thumbnail_path')
+                .eq('filename', TEST_FILENAME)
+                .limit(1);
+            if (!rows || !rows.length) {
+                select.innerHTML = `<option>Upload ${TEST_FILENAME} first</option>`;
+                return;
+            }
+            const row = rows[0];
+            const signedUrl = await getSignedUrl(row.storage_path);
+            const v = {
+                id: row.id,
+                filename: row.filename,
+                path: signedUrl || '',
+                split: 'labeled',
+                tags: [],
+                labels: [],
+            };
+            // Seed labels into localStorage if not already set
+            if (!localStorage.getItem(`labels_${v.id}`)) {
+                const seeded = TEST_LABELS.map(l => ({ ...l, videoId: v.id }));
+                localStorage.setItem(`labels_${v.id}`, JSON.stringify(seeded));
+            }
+            if (!localStorage.getItem(`video_split_${v.id}`)) {
+                localStorage.setItem(`video_split_${v.id}`, 'labeled');
+            }
+            videos = [v];
             populateSelect();
-            const first = visibleVideos()[0];
-            if (first) loadVideo(first);
-        })
-        .catch(() => {
-            select.innerHTML = '<option>No videos found — run generate_manifest.py</option>';
-        });
+            loadVideo(v);
+        })();
+    }
 
     select.addEventListener('change', () => {
         const v = videos.find(v => v.path === select.value);

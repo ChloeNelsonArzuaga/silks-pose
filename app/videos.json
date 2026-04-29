@@ -136,6 +136,14 @@
     "labels": []
   },
   {
+    "id": "IMG_0237_compressed",
+    "filename": "IMG_0237_compressed.mp4",
+    "path": "data/raw_videos/IMG_0237_compressed.mp4",
+    "split": "unassigned",
+    "tags": [],
+    "labels": []
+  },
+  {
     "id": "IMG_0241",
     "filename": "IMG_0241.MOV",
     "path": "data/raw_videos/IMG_0241.MOV",
@@ -992,14 +1000,6 @@
     "labels": []
   },
   {
-    "id": "IMG_0408 (1)",
-    "filename": "IMG_0408 (1).MOV",
-    "path": "data/raw_videos/IMG_0408 (1).MOV",
-    "split": "unassigned",
-    "tags": [],
-    "labels": []
-  },
-  {
     "id": "IMG_0408",
     "filename": "IMG_0408.MOV",
     "path": "data/raw_videos/IMG_0408.MOV",
@@ -1240,9 +1240,9 @@
     "labels": []
   },
   {
-    "id": "IMG_0462 (1)",
-    "filename": "IMG_0462 (1).MOV",
-    "path": "data/raw_videos/IMG_0462 (1).MOV",
+    "id": "IMG_0462",
+    "filename": "IMG_0462.MOV",
+    "path": "data/raw_videos/IMG_0462.MOV",
     "split": "unassigned",
     "tags": [],
     "labels": []
@@ -1347,22 +1347,6 @@
     "id": "IMG_0477",
     "filename": "IMG_0477.MOV",
     "path": "data/raw_videos/IMG_0477.MOV",
-    "split": "unassigned",
-    "tags": [],
-    "labels": []
-  },
-  {
-    "id": "IMG_0478 (1)",
-    "filename": "IMG_0478 (1).MOV",
-    "path": "data/raw_videos/IMG_0478 (1).MOV",
-    "split": "unassigned",
-    "tags": [],
-    "labels": []
-  },
-  {
-    "id": "IMG_0478 (2)",
-    "filename": "IMG_0478 (2).MOV",
-    "path": "data/raw_videos/IMG_0478 (2).MOV",
     "split": "unassigned",
     "tags": [],
     "labels": []

@@ -1,15 +1,18 @@
 import { supabase } from '../../lib/supabase.js';
+import { fetchVideos, getSignedUrl, updateVideo } from '../../lib/videos.js';
+import { buildMoveGroups, buildTagCollections, renderThumbStack, setMoveFav, setAutoCollFav, STAR_SVG } from '../../lib/groups.js';
+
+const STACK_THUMBS = 3;
 
 export function Favorites() {
     const page = document.createElement('div');
     page.className = 'page page-favorites';
-
     page.innerHTML = `
         <div class="lib-page">
             <div class="lib-page-header">
                 <div>
                     <h1 class="lib-title">Favorites</h1>
-                    <p class="lib-subtitle">Your starred videos, all in one place.</p>
+                    <p class="lib-subtitle">Your starred videos, moves, and collections.</p>
                 </div>
             </div>
             <div class="lib-toolbar">
@@ -20,12 +23,9 @@ export function Favorites() {
                     </div>
                 </div>
             </div>
-            <div class="lib-grid" id="fav-grid">
-                <p class="lib-empty">Loading...</p>
-            </div>
+            <div id="fav-content"><p class="lib-empty">Loading...</p></div>
         </div>
 
-        <!-- Video player modal -->
         <div class="player-modal-bg" id="fav-player-bg">
             <div class="player-modal">
                 <div class="player-modal-header">
@@ -40,23 +40,203 @@ export function Favorites() {
         </div>
     `;
 
-    const grid = page.querySelector('#fav-grid');
+    const content = page.querySelector('#fav-content');
     const searchInput = page.querySelector('#fav-search');
     const playerBg = page.querySelector('#fav-player-bg');
     const playerVideo = page.querySelector('#fav-player-video');
     const playerTitle = page.querySelector('#fav-player-title');
     const playerTags = page.querySelector('#fav-player-tags');
 
-    let allFavs = [];
-    let filtered = [];
+    let allVideos = [];
+    let favVideos = [];
+    let favMoves = [];
+    let favColls = [];
+    let q = '';
 
-    function openPlayer(v) {
-        const name = getCardName(v);
-        playerTitle.textContent = name;
-        playerVideo.src = v.path;
-        playerVideo.play();
-        const poses = getPoses(v);
-        playerTags.innerHTML = poses.map(t => `<span class="lib-tag">${t}</span>`).join('');
+    fetchVideos().then(data => {
+        allVideos = data;
+        favVideos = allVideos.filter(v => v.favorite);
+        favMoves = buildMoveGroups(allVideos).filter(g => g.favorite);
+        const manual = JSON.parse(localStorage.getItem('collections') || '[]').filter(c => c.favorite);
+        const auto = buildTagCollections(allVideos).filter(c => c.favorite);
+        favColls = [...auto, ...manual];
+        render();
+    }).catch(e => {
+        content.innerHTML = `<p class="lib-empty">Could not load favorites: ${e.message}</p>`;
+    });
+
+    searchInput.addEventListener('input', () => { q = searchInput.value.trim().toLowerCase(); render(); });
+
+    function render() {
+        const vids = q ? favVideos.filter(v =>
+            (v.customName || v.filename || '').toLowerCase().includes(q) ||
+            (v.poses || []).some(p => p.toLowerCase().includes(q)) ||
+            (v.tags || []).some(t => t.toLowerCase().includes(q))
+        ) : favVideos;
+        const moves = q ? favMoves.filter(g => g.display.toLowerCase().includes(q)) : favMoves;
+        const colls = q ? favColls.filter(c => c.name.toLowerCase().includes(q)) : favColls;
+
+        if (!vids.length && !moves.length && !colls.length) {
+            content.innerHTML = '<p class="lib-empty">No favorites yet — star videos, moves, or collections to see them here.</p>';
+            return;
+        }
+
+        content.innerHTML = [
+            moves.length ? renderSection('Moves', renderMoveCards(moves)) : '',
+            colls.length ? renderSection('Collections', renderCollCards(colls)) : '',
+            vids.length  ? renderSection('Videos',  renderVideoCards(vids))  : '',
+        ].join('');
+
+        bindEvents();
+    }
+
+    function renderSection(title, cardsHtml) {
+        return `
+            <div class="fav-section">
+                <div class="fav-section-title">${title}</div>
+                <div class="lib-grid">${cardsHtml}</div>
+            </div>
+        `;
+    }
+
+    // ── Move cards ──────────────────────────────────────────
+    function renderMoveCards(moves) {
+        return moves.map(g => `
+            <div class="prog-card fav-move-card" data-move="${g.key}">
+                <div class="prog-stack">${renderThumbStack(g.videos, STACK_THUMBS)}</div>
+                <div class="prog-card-body">
+                    <div class="prog-card-top">
+                        <div class="prog-card-title">${g.display}</div>
+                        <button class="fav-btn fav-active fav-move-unfav" data-move="${g.key}" title="Unfavorite">
+                            ${STAR_SVG(true)}
+                        </button>
+                    </div>
+                    <div class="prog-card-count">${g.videos.length} video${g.videos.length !== 1 ? 's' : ''}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ── Collection cards ────────────────────────────────────
+    function renderCollCards(colls) {
+        return colls.map(c => {
+            const videos = allVideos.filter(v => (c.videoIds || []).includes(v.id));
+            const count = c.videoIds?.length || 0;
+            const stackHtml = videos.length
+                ? `<div class="prog-stack coll-card-stack">${renderThumbStack(videos, STACK_THUMBS)}</div>`
+                : '';
+            return `
+                <div class="coll-card coll-card-auto fav-coll-card" data-coll-id="${c.id}">
+                    <div class="coll-card-thumb">
+                        ${stackHtml}
+                        <span class="coll-card-count">${count} video${count !== 1 ? 's' : ''}</span>
+                        <button class="fav-btn fav-active fav-coll-unfav" data-coll-id="${c.id}" title="Unfavorite">
+                            ${STAR_SVG(true)}
+                        </button>
+                    </div>
+                    <div class="coll-card-body">
+                        <div class="coll-card-name">${c.name}</div>
+                        ${c.description ? `<div class="coll-card-desc">${c.description}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // ── Video cards ─────────────────────────────────────────
+    function thumbnailUrl(v) {
+        const path = v.thumbnail_path || `${v.id}.jpg`;
+        const { data } = supabase.storage.from('thumbnails').getPublicUrl(path);
+        return data.publicUrl;
+    }
+
+    function renderVideoCards(vids) {
+        return vids.map(v => {
+            const name = v.customName || (v.poses || [])[0] || v.filename?.replace(/\.[^.]+$/, '') || '';
+            const poses = (v.poses || []).slice(0, 3);
+            const tags = (v.tags || []).slice(0, 2);
+            const pills = [
+                ...poses.map(t => `<span class="lib-tag">${t}</span>`),
+                ...tags.map(t => `<span class="lib-tag lib-tag-meta">${t}</span>`),
+            ].join('');
+            return `
+                <div class="lib-card fav-video-card" data-id="${v.id}">
+                    <div class="lib-card-thumb-wrap">
+                        <img class="lib-card-thumb" src="${thumbnailUrl(v)}" alt="" onerror="this.style.opacity='0'">
+                    </div>
+                    <div class="lib-card-body">
+                        <div class="lib-card-top">
+                            <span class="lib-card-title">${name}</span>
+                            <button class="fav-btn fav-active fav-video-unfav" data-id="${v.id}" title="Unfavorite">
+                                ${STAR_SVG(true)}
+                            </button>
+                        </div>
+                        <div class="lib-card-tags">${pills}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // ── Events ──────────────────────────────────────────────
+    function bindEvents() {
+        content.querySelectorAll('.fav-video-card').forEach(card => {
+            card.addEventListener('click', e => {
+                if (e.target.closest('.fav-video-unfav')) return;
+                const v = allVideos.find(x => x.id === card.dataset.id);
+                if (v) openPlayer(v);
+            });
+        });
+
+        content.querySelectorAll('.fav-video-unfav').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                const v = allVideos.find(x => x.id === btn.dataset.id);
+                if (!v) return;
+                v.favorite = false;
+                localStorage.setItem(`fav_${v.id}`, '0');
+                updateVideo(v.id, { favorite: false });
+                favVideos = favVideos.filter(x => x.id !== v.id);
+                render();
+            });
+        });
+
+        content.querySelectorAll('.fav-move-unfav').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                const key = btn.dataset.move;
+                setMoveFav(key, false);
+                favMoves = favMoves.filter(g => g.key !== key);
+                render();
+            });
+        });
+
+        content.querySelectorAll('.fav-coll-unfav').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                const id = btn.dataset.collId;
+                const c = favColls.find(x => x.id === id);
+                if (!c) return;
+                if (c.auto) setAutoCollFav(id, false);
+                else {
+                    const manual = JSON.parse(localStorage.getItem('collections') || '[]');
+                    const found = manual.find(x => x.id === id);
+                    if (found) { found.favorite = false; localStorage.setItem('collections', JSON.stringify(manual)); }
+                }
+                favColls = favColls.filter(x => x.id !== id);
+                render();
+            });
+        });
+    }
+
+    async function openPlayer(v) {
+        playerTitle.textContent = v.customName || (v.poses || [])[0] || v.filename?.replace(/\.[^.]+$/, '') || '';
+        const url = await getSignedUrl(v.storage_path || v.path);
+        playerVideo.src = url || '';
+        if (url) playerVideo.play().catch(() => {});
+        const pills = [...(v.poses || []).map(t => `<span class="lib-tag">${t}</span>`),
+                       ...(v.tags  || []).map(t => `<span class="lib-tag lib-tag-meta">${t}</span>`)].join('');
+        playerTags.innerHTML = pills;
         playerBg.classList.add('is-open');
     }
 
@@ -69,157 +249,6 @@ export function Favorites() {
     page.querySelector('#fav-player-close').addEventListener('click', closePlayer);
     playerBg.addEventListener('click', e => { if (e.target === playerBg) closePlayer(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closePlayer(); });
-
-    fetch('app/videos.json')
-        .then(r => r.json())
-        .then(data => {
-            allFavs = data
-                .map(v => ({
-                    ...v,
-                    labels: JSON.parse(localStorage.getItem(`labels_${v.id}`) || JSON.stringify(v.labels || [])),
-                    customName: localStorage.getItem(`name_${v.id}`) || null,
-                    favorite: localStorage.getItem(`fav_${v.id}`) === '1',
-                }))
-                .filter(v => v.favorite);
-            filtered = allFavs;
-            render();
-        })
-        .catch(() => {
-            grid.innerHTML = '<p class="lib-empty">No videos found.</p>';
-        });
-
-    searchInput.addEventListener('input', () => {
-        const q = searchInput.value.trim().toLowerCase();
-        filtered = q
-            ? allFavs.filter(v =>
-                (v.filename || '').toLowerCase().includes(q) ||
-                getPoses(v).some(p => p.toLowerCase().includes(q))
-              )
-            : allFavs;
-        render();
-    });
-
-    function getPoses(video) {
-        const seen = new Set();
-        return (video.labels || [])
-            .map(l => l.label && l.label.trim())
-            .filter(l => l && !seen.has(l.toLowerCase()) && seen.add(l.toLowerCase()));
-    }
-
-    function getCardName(v) {
-        if (v.customName) return v.customName;
-        return getPoses(v)[0] || '';
-    }
-
-    function getThumbTime(v) {
-        const poses = getPoses(v);
-        if (poses.length < 2 || poses[0].toLowerCase().includes('cats crad')) {
-            const first = (v.labels || []).find(l => l.label && l.label.trim());
-            return first != null ? first.startTime : '';
-        }
-        const second = poses[1];
-        const match = (v.labels || []).find(l => l.label && l.label.trim().toLowerCase() === second.toLowerCase());
-        return match != null ? match.startTime : '';
-    }
-
-    function drawToCanvas(canvas, source) {
-        const dpr = window.devicePixelRatio || 1;
-        const cw = canvas.offsetWidth || canvas.parentElement?.offsetWidth || 220;
-        const ch = canvas.offsetHeight || canvas.parentElement?.offsetHeight || 138;
-        const vw = source.videoWidth || source.naturalWidth;
-        const vh = source.videoHeight || source.naturalHeight;
-        canvas.width = cw * dpr;
-        canvas.height = ch * dpr;
-        canvas.style.width = cw + 'px';
-        canvas.style.height = ch + 'px';
-        const ctx = canvas.getContext('2d');
-        ctx.scale(dpr, dpr);
-        ctx.filter = 'blur(18px) brightness(0.85)';
-        ctx.drawImage(source, -cw * 0.1, -ch * 0.1, cw * 1.2, ch * 1.2);
-        ctx.filter = 'none';
-        const scale = Math.min(cw / vw, ch / vh);
-        ctx.drawImage(source, (cw - vw * scale) / 2, (ch - vh * scale) / 2, vw * scale, vh * scale);
-    }
-
-    function captureMidframe(canvas, src, videoId) {
-        const { data: { publicUrl } } = supabase.storage.from('thumbnails').getPublicUrl(`${videoId}.jpg`);
-        const img = new Image();
-        img.onload = () => drawToCanvas(canvas, img);
-        img.onerror = () => captureFromVideo(canvas, src, videoId);
-        img.src = publicUrl + '?t=1';
-    }
-
-    function captureFromVideo(canvas, src, videoId) {
-        const vid = document.createElement('video');
-        vid.src = src;
-        vid.muted = true;
-        vid.preload = 'metadata';
-        const seekTo = canvas.dataset?.seek !== '' ? parseFloat(canvas.dataset?.seek) : null;
-        vid.addEventListener('loadedmetadata', () => {
-            vid.currentTime = (seekTo !== null && !isNaN(seekTo)) ? seekTo : vid.duration / 2;
-        });
-        vid.addEventListener('seeked', () => {
-            drawToCanvas(canvas, vid);
-            vid.src = '';
-        });
-    }
-
-    function render() {
-        if (filtered.length === 0) {
-            grid.innerHTML = '<p class="lib-empty">No favorites yet. Star videos in your Library to see them here.</p>';
-            return;
-        }
-
-        grid.className = 'lib-grid';
-        grid.innerHTML = filtered.map(v => {
-            const poses = getPoses(v).slice(0, 3);
-            const name = getCardName(v);
-            return `
-                <div class="lib-card" data-id="${v.id}">
-                    <div class="lib-card-thumb-wrap">
-                        <canvas class="lib-card-thumb" data-src="${v.path}" data-seek="${getThumbTime(v)}" data-id="${v.id}"></canvas>
-                    </div>
-                    <div class="lib-card-body">
-                        <div class="lib-card-top">
-                            <div class="lib-card-title-wrap">
-                                <span class="lib-card-title">${name}</span>
-                            </div>
-                            <button class="fav-btn fav-active" data-id="${v.id}" title="Unfavorite">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            </button>
-                        </div>
-                        <div class="lib-card-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-
-        // Card clicks → open player
-        grid.querySelectorAll('.lib-card').forEach(card => {
-            card.addEventListener('click', e => {
-                if (e.target.closest('.fav-btn')) return;
-                const v = allFavs.find(v => v.id === card.dataset.id);
-                if (v) openPlayer(v);
-            });
-        });
-
-        // Thumbnails
-        grid.querySelectorAll('canvas[data-src]').forEach(canvas => {
-            captureMidframe(canvas, canvas.dataset.src, canvas.dataset.id);
-        });
-
-        // Unfavorite
-        grid.querySelectorAll('.fav-btn').forEach(btn => {
-            btn.addEventListener('click', e => {
-                e.stopPropagation();
-                const id = btn.dataset.id;
-                localStorage.setItem(`fav_${id}`, '0');
-                allFavs = allFavs.filter(v => v.id !== id);
-                filtered = filtered.filter(v => v.id !== id);
-                render();
-            });
-        });
-    }
 
     return page;
 }

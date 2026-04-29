@@ -7,10 +7,7 @@ export function Navbar(session) {
     nav.innerHTML = `
         <div class="navbar-brand">
             <div class="brand-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <path d="M16 4 C10 4 6 9 8 14 C10 19 8 24 16 28 C24 24 22 19 24 14 C26 9 22 4 16 4Z" stroke="#5c4ec9" stroke-width="1.5" fill="none"/>
-                    <path d="M16 4 C16 10 20 14 16 28" stroke="#5c4ec9" stroke-width="1.2" fill="none"/>
-                </svg>
+                <img src="app/assets/logo.png" alt="" class="brand-logo">
             </div>
             <div class="brand-text">
                 <a href="#/" class="brand-name">SilkVault</a>
@@ -46,9 +43,6 @@ export function Navbar(session) {
                     <line x1="5" y1="12" x2="19" y2="12"/>
                 </svg>
                 Upload
-            </button>
-            <button class="bell-btn" title="Notifications">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             </button>
             <div class="avatar-circle" id="nav-avatar" title="${session?.user?.email || ''}">${(session?.user?.email?.[0] ?? 'S').toUpperCase()}</div>
             <div class="avatar-menu" id="avatar-menu" hidden>
