@@ -1,3 +1,5 @@
+import { supabase } from '../../lib/supabase.js';
+
 export function Home() {
     const page = document.createElement('div');
     page.className = 'page page-home';
@@ -21,6 +23,7 @@ export function Home() {
                     </div>
                 </div>
                 <div class="lib-toolbar-right">
+                    <button class="lib-select-btn" id="lib-select-btn">Select</button>
                     <button class="lib-view-btn lib-view-active" id="view-grid" title="Grid view">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
                     </button>
@@ -39,6 +42,45 @@ export function Home() {
             <div class="lib-pagination" id="lib-pagination"></div>
         </div>
 
+        <!-- Video player modal -->
+        <div class="player-modal-bg" id="player-modal-bg">
+            <div class="player-modal">
+                <div class="player-modal-header">
+                    <div class="player-modal-title" id="player-title"></div>
+                    <button class="coll-modal-close" id="player-close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <video class="player-video" id="player-video" controls playsinline></video>
+                <div class="player-tags" id="player-tags"></div>
+            </div>
+        </div>
+
+        <!-- Selection action bar -->
+        <div class="lib-action-bar" id="lib-action-bar" hidden>
+            <span class="lib-action-count" id="lib-action-count">0 selected</span>
+            <div class="lib-action-btns">
+                <button class="btn btn-primary" id="lib-move-btn">Move to Collection</button>
+                <button class="btn btn-secondary" id="lib-cancel-select">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Collection picker modal -->
+        <div class="coll-modal-bg" id="lib-coll-modal-bg">
+            <div class="coll-modal">
+                <div class="coll-modal-header">
+                    <h2 class="coll-modal-title">Move to Collection</h2>
+                    <button class="coll-modal-close" id="lib-coll-modal-close">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <div class="coll-picker-list" id="coll-picker-list"></div>
+                <div class="coll-modal-actions">
+                    <button class="btn btn-secondary" id="lib-coll-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
         <input type="file" id="file-input" accept="video/*" hidden>
     `;
 
@@ -52,6 +94,38 @@ export function Home() {
     const grid = page.querySelector('#lib-grid');
     const searchInput = page.querySelector('#lib-search');
     const pagination = page.querySelector('#lib-pagination');
+    const actionBar = page.querySelector('#lib-action-bar');
+    const actionCount = page.querySelector('#lib-action-count');
+    const collModalBg = page.querySelector('#lib-coll-modal-bg');
+    const collPickerList = page.querySelector('#coll-picker-list');
+
+    let selectMode = false;
+    let selectedIds = new Set();
+
+    const playerModalBg = page.querySelector('#player-modal-bg');
+    const playerVideo = page.querySelector('#player-video');
+    const playerTitle = page.querySelector('#player-title');
+    const playerTags = page.querySelector('#player-tags');
+
+    function openPlayer(v) {
+        const name = v.customName || getPoses(v)[0] || v.filename.replace(/\.[^.]+$/, '');
+        playerTitle.textContent = name;
+        playerVideo.src = v.path;
+        playerVideo.play();
+        const poses = getPoses(v);
+        playerTags.innerHTML = poses.map(t => `<span class="lib-tag">${t}</span>`).join('');
+        playerModalBg.classList.add('is-open');
+    }
+
+    function closePlayer() {
+        playerModalBg.classList.remove('is-open');
+        playerVideo.pause();
+        playerVideo.src = '';
+    }
+
+    page.querySelector('#player-close').addEventListener('click', closePlayer);
+    playerModalBg.addEventListener('click', e => { if (e.target === playerModalBg) closePlayer(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePlayer(); });
 
     fetch('app/videos.json')
         .then(r => r.json())
@@ -64,6 +138,7 @@ export function Home() {
                     tags: JSON.parse(localStorage.getItem(`video_tags_${v.id}`) || JSON.stringify(v.tags || [])),
                     split: localStorage.getItem(`video_split_${v.id}`) || v.split || 'unassigned',
                     favorite: localStorage.getItem(`fav_${v.id}`) === '1',
+                    customName: localStorage.getItem(`name_${v.id}`) || null,
                 }));
             filteredVideos = allVideos;
             renderPage();
@@ -99,6 +174,112 @@ export function Home() {
         renderPage();
     });
 
+    // Select mode
+    page.querySelector('#lib-select-btn').addEventListener('click', () => {
+        selectMode = true;
+        selectedIds.clear();
+        page.querySelector('#lib-select-btn').hidden = true;
+        actionBar.classList.add('is-open');
+        updateActionCount();
+        renderPage();
+    });
+
+    page.querySelector('#lib-cancel-select').addEventListener('click', exitSelectMode);
+
+    function exitSelectMode() {
+        selectMode = false;
+        selectedIds.clear();
+        page.querySelector('#lib-select-btn').hidden = false;
+        actionBar.classList.remove('is-open');
+        renderPage();
+    }
+
+    function updateActionCount() {
+        actionCount.textContent = `${selectedIds.size} selected`;
+        page.querySelector('#lib-move-btn').disabled = selectedIds.size === 0;
+    }
+
+    page.querySelector('#lib-move-btn').addEventListener('click', () => {
+        const collections = JSON.parse(localStorage.getItem('collections') || '[]');
+        renderCollPicker(collections);
+        collModalBg.classList.add('is-open');
+    });
+
+    function renderCollPicker(collections) {
+        collPickerList.innerHTML = collections.map(c => `
+            <button class="coll-picker-item" data-id="${c.id}">
+                <div class="coll-picker-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                    <div class="coll-picker-name">${c.name}</div>
+                    <div class="coll-picker-count">${(c.videoIds || []).length} videos</div>
+                </div>
+            </button>
+        `).join('') + `
+            <button class="coll-picker-item coll-picker-new" id="coll-picker-new-btn">
+                <div class="coll-picker-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div>
+                    <div class="coll-picker-name">New Collection</div>
+                    <div class="coll-picker-count">Create and add</div>
+                </div>
+            </button>
+        `;
+
+        collPickerList.querySelectorAll('.coll-picker-item:not(.coll-picker-new)').forEach(btn => {
+            btn.addEventListener('click', () => addToCollection(btn.dataset.id));
+        });
+
+        collPickerList.querySelector('#coll-picker-new-btn').addEventListener('click', () => {
+            collPickerList.innerHTML = `
+                <div class="coll-picker-inline-form">
+                    <input class="login-input" type="text" id="coll-picker-name" placeholder="Collection name" required>
+                    <div class="coll-picker-inline-actions">
+                        <button class="btn btn-secondary" id="coll-picker-back">Back</button>
+                        <button class="btn btn-primary" id="coll-picker-create">Create & Add</button>
+                    </div>
+                </div>
+            `;
+            const nameInput = collPickerList.querySelector('#coll-picker-name');
+            nameInput.focus();
+            collPickerList.querySelector('#coll-picker-back').addEventListener('click', () => {
+                renderCollPicker(JSON.parse(localStorage.getItem('collections') || '[]'));
+            });
+            collPickerList.querySelector('#coll-picker-create').addEventListener('click', () => {
+                const name = nameInput.value.trim();
+                if (!name) return;
+                const collections = JSON.parse(localStorage.getItem('collections') || '[]');
+                const newColl = { id: crypto.randomUUID(), name, description: '', tags: [], videoIds: [], favorite: false, createdAt: Date.now() };
+                collections.unshift(newColl);
+                localStorage.setItem('collections', JSON.stringify(collections));
+                addToCollection(newColl.id);
+            });
+        });
+    }
+
+    function addToCollection(collId) {
+        const collections = JSON.parse(localStorage.getItem('collections') || '[]');
+        const coll = collections.find(c => c.id === collId);
+        if (!coll) return;
+        coll.videoIds = [...new Set([...(coll.videoIds || []), ...selectedIds])];
+        localStorage.setItem('collections', JSON.stringify(collections));
+        closeCollModal();
+        exitSelectMode();
+        const toast = document.createElement('div');
+        toast.className = 'upload-toast';
+        toast.textContent = `${selectedIds.size} video${selectedIds.size !== 1 ? 's' : ''} added to "${coll.name}"`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.classList.add('toast-visible'), 10);
+        setTimeout(() => { toast.classList.remove('toast-visible'); setTimeout(() => toast.remove(), 300); }, 3000);
+    }
+
+    function closeCollModal() { collModalBg.classList.remove('is-open'); }
+    page.querySelector('#lib-coll-modal-close').addEventListener('click', closeCollModal);
+    page.querySelector('#lib-coll-cancel').addEventListener('click', closeCollModal);
+    collModalBg.addEventListener('click', e => { if (e.target === collModalBg) closeCollModal(); });
+
     function getPoses(video) {
         const seen = new Set();
         return (video.labels || [])
@@ -127,9 +308,59 @@ export function Home() {
             grid.innerHTML = pageVideos.map(v => renderCard(v)).join('');
         }
 
+        // Card clicks
+        grid.querySelectorAll('.lib-card').forEach(card => {
+            card.addEventListener('click', e => {
+                if (e.target.closest('.fav-btn') || e.target.closest('.lib-card-edit-btn')) return;
+                const id = card.dataset.id;
+                if (selectMode) {
+                    if (selectedIds.has(id)) selectedIds.delete(id);
+                    else selectedIds.add(id);
+                    updateActionCount();
+                    renderPage();
+                } else {
+                    const v = allVideos.find(v => v.id === id);
+                    if (v) openPlayer(v);
+                }
+            });
+        });
+
         // Thumbnails
         grid.querySelectorAll('canvas[data-src]').forEach(canvas => {
-            captureMidframe(canvas, canvas.dataset.src);
+            captureMidframe(canvas, canvas.dataset.src, canvas.dataset.id);
+        });
+
+        // Name edit
+        grid.querySelectorAll('.lib-card-edit-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                const id = btn.dataset.id;
+                const v = allVideos.find(v => v.id === id);
+                if (!v) return;
+                const titleEl = grid.querySelector(`.lib-card-title[data-id="${id}"]`);
+                const current = getCardName(v);
+                const input = document.createElement('input');
+                input.className = 'lib-card-title-input';
+                input.value = current;
+                titleEl.replaceWith(input);
+                input.focus();
+                input.select();
+                function save() {
+                    const val = input.value.trim() || current;
+                    v.customName = val;
+                    localStorage.setItem(`name_${id}`, val);
+                    const span = document.createElement('span');
+                    span.className = 'lib-card-title';
+                    span.dataset.id = id;
+                    span.textContent = val;
+                    input.replaceWith(span);
+                }
+                input.addEventListener('blur', save);
+                input.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') input.blur();
+                    if (e.key === 'Escape') { input.value = current; input.blur(); }
+                });
+            });
         });
 
         // Favorite toggles
@@ -153,42 +384,52 @@ export function Home() {
         if (countEl) countEl.textContent = `Showing ${start + 1}–${Math.min(start + PAGE_SIZE, filteredVideos.length)} of ${filteredVideos.length} videos`;
     }
 
-    function renderCard(v) {
-        const poses = getPoses(v);
-        const tags = [...poses, ...(v.tags || [])].slice(0, 3);
-        const splitColor = { train: 'tag-green', test: 'tag-blue', labeled: 'tag-yellow', unused: 'tag-red', unassigned: '' }[v.split] || '';
+    function getCardName(v) {
+        if (v.customName) return v.customName;
+        const first = getPoses(v)[0];
+        return first || '';
+    }
 
+    function renderCard(v) {
+        const poses = getPoses(v).slice(0, 3);
+        const name = getCardName(v);
+        const isSelected = selectedIds.has(v.id);
         return `
-            <div class="lib-card">
+            <div class="lib-card ${selectMode ? 'lib-card-selectable' : ''} ${isSelected ? 'lib-card-selected' : ''}" data-id="${v.id}">
+                ${selectMode ? `<div class="lib-card-checkbox ${isSelected ? 'lib-card-checkbox-checked' : ''}">
+                    ${isSelected ? '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+                </div>` : ''}
                 <div class="lib-card-thumb-wrap">
-                    <canvas class="lib-card-thumb" data-src="${v.path}" data-seek="${getThumbTime(v)}"></canvas>
+                    <canvas class="lib-card-thumb" data-src="${v.path}" data-seek="${getThumbTime(v)}" data-id="${v.id}"></canvas>
                 </div>
                 <div class="lib-card-body">
                     <div class="lib-card-top">
-                        <div class="lib-card-title">${v.filename.replace(/\.[^.]+$/, '')}</div>
+                        <div class="lib-card-title-wrap">
+                            <span class="lib-card-title" data-id="${v.id}">${name}</span>
+                            <button class="lib-card-edit-btn" data-id="${v.id}" title="Rename">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </button>
+                        </div>
                         <button class="fav-btn ${v.favorite ? 'fav-active' : ''}" data-id="${v.id}" title="Favorite">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="${v.favorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </button>
                     </div>
-                    <div class="lib-card-meta">${v.split !== 'unassigned' ? `<span class="lib-tag ${splitColor}">${v.split}</span>` : ''}</div>
-                    <div class="lib-card-tags">${tags.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
+                    <div class="lib-card-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
                 </div>
             </div>
         `;
     }
 
     function renderListRow(v) {
-        const poses = getPoses(v);
-        const tags = [...poses, ...(v.tags || [])].slice(0, 4);
+        const poses = getPoses(v).slice(0, 4);
 
         return `
             <div class="lib-row">
                 <canvas class="lib-row-thumb" data-src="${v.path}" data-seek="${getThumbTime(v)}"></canvas>
                 <div class="lib-row-info">
-                    <div class="lib-row-title">${v.filename.replace(/\.[^.]+$/, '')}</div>
-                    <div class="lib-row-filename">${v.filename}</div>
+                    <div class="lib-row-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
                 </div>
-                <div class="lib-row-tags">${tags.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
+                <div class="lib-row-tags">${poses.map(t => `<span class="lib-tag">${t}</span>`).join('')}</div>
                 <button class="fav-btn ${v.favorite ? 'fav-active' : ''}" data-id="${v.id}">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="${v.favorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 </button>
@@ -233,25 +474,72 @@ export function Home() {
     }
 
     function getThumbTime(v) {
-        const first = (v.labels || []).find(l => l.label && l.label.trim());
-        return first != null ? first.startTime : '';
+        const poses = getPoses(v);
+        if (poses.length < 2 || poses[0].toLowerCase().includes('cats crad')) {
+            const first = (v.labels || []).find(l => l.label && l.label.trim());
+            return first != null ? first.startTime : '';
+        }
+        const second = poses[1];
+        const match = (v.labels || []).find(l => l.label && l.label.trim().toLowerCase() === second.toLowerCase());
+        return match != null ? match.startTime : '';
     }
 
-    function captureMidframe(canvas, src) {
+    function drawToCanvas(canvas, source) {
+        const dpr = window.devicePixelRatio || 1;
+        const cw = canvas.offsetWidth || canvas.parentElement?.offsetWidth || 220;
+        const ch = canvas.offsetHeight || canvas.parentElement?.offsetHeight || 138;
+        const vw = source.videoWidth || source.naturalWidth;
+        const vh = source.videoHeight || source.naturalHeight;
+        canvas.width = cw * dpr;
+        canvas.height = ch * dpr;
+        canvas.style.width = cw + 'px';
+        canvas.style.height = ch + 'px';
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+        ctx.filter = 'blur(18px) brightness(0.85)';
+        ctx.drawImage(source, -cw * 0.1, -ch * 0.1, cw * 1.2, ch * 1.2);
+        ctx.filter = 'none';
+        const scale = Math.min(cw / vw, ch / vh);
+        ctx.drawImage(source, (cw - vw * scale) / 2, (ch - vh * scale) / 2, vw * scale, vh * scale);
+    }
+
+    async function uploadThumbnail(canvas, videoId) {
+        return new Promise(resolve => {
+            canvas.toBlob(async blob => {
+                if (!blob) { console.warn('[thumb] toBlob returned null for', videoId); return resolve(); }
+                const { error } = await supabase.storage.from('thumbnails').upload(`${videoId}.jpg`, blob, {
+                    contentType: 'image/jpeg',
+                    upsert: true,
+                });
+                if (error) console.error('[thumb] upload failed for', videoId, error.message);
+                else console.log('[thumb] uploaded', videoId);
+                resolve();
+            }, 'image/jpeg', 0.85);
+        });
+    }
+
+    function captureMidframe(canvas, src, videoId) {
+        const { data: { publicUrl } } = supabase.storage.from('thumbnails').getPublicUrl(`${videoId}.jpg`);
+        const img = new Image();
+        img.onload = () => drawToCanvas(canvas, img);
+        img.onerror = () => captureFromVideo(canvas, src, videoId);
+        img.src = publicUrl + '?t=1';
+    }
+
+    function captureFromVideo(canvas, src, videoId, onDone) {
         const vid = document.createElement('video');
         vid.src = src;
-        vid.crossOrigin = 'anonymous';
         vid.muted = true;
         vid.preload = 'metadata';
-        const seekTo = canvas.dataset.seek !== '' ? parseFloat(canvas.dataset.seek) : null;
+        const seekTo = canvas.dataset?.seek !== '' ? parseFloat(canvas.dataset?.seek) : null;
         vid.addEventListener('loadedmetadata', () => {
             vid.currentTime = (seekTo !== null && !isNaN(seekTo)) ? seekTo : vid.duration / 2;
         });
         vid.addEventListener('seeked', () => {
-            canvas.width = vid.videoWidth;
-            canvas.height = vid.videoHeight;
-            canvas.getContext('2d').drawImage(vid, 0, 0);
+            drawToCanvas(canvas, vid);
             vid.src = '';
+            if (onDone) onDone(canvas);
+            else uploadThumbnail(canvas, videoId);
         });
     }
 
